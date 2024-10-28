@@ -25,7 +25,7 @@ jobs:
           skip_fetch: true
 
   tests:
-
+    needs: phplint
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -55,6 +55,7 @@ jobs:
       run: php artisan test
 
   static_analysis:
+    needs: phplint
     runs-on: ubuntu-latest
     defaults:
       run:
