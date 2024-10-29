@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="%paraglide.lang%" dir="%paraglide.textDirection%">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="%sveltekit.assets%/favicon-48x48.png" sizes="48x48" />
+		<link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
+		<link rel="shortcut icon" href="%sveltekit.assets%/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Mobiwende" />
+		<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
+		%sveltekit.head%
+
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Event",
+				"name": "Mobilitätswende Camp 2025",
+				"startDate": "2025-09-9",
+				"endDate": "2025-09-14",
+				"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+				"eventStatus": "https://schema.org/EventScheduled",
+				"location": {
+					"@type": "Place",
+					"name": "Luitpoldpark München",
+					"address": {
+						"@type": "PostalAddress",
+						"streetAddress": "Brunnerstraße 2",
+						"addressLocality": "München",
+						"postalCode": "80804",
+						"addressRegion": "BY",
+						"addressCountry": "DE"
+					}
+				},
+				"description": "Mit unserem „Mobilitätswende Camp“ wollen wir solidarische Praxis direkt erfahrbar machen, außerdem möchten wir Bildungsangebot und vernetzendes Element für die Klimabewegung sein."
+			}
+		</script>
+		<style>
+			@font-face {
+				font-family: 'Boogaloo';
+				src: url('/fonts/Boogaloo-Regular.ttf') format('truetype');
+				font-weight: normal;
+				font-style: normal;
+				font-display: swap;
+			}
+		</style>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
