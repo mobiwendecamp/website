@@ -66,4 +66,18 @@ Create an Application Key
 ./vendor/bin/sail artisan key:generate
 ```
 
+##### Step 6
+
+Create database
+```
+touch database/database.sqlite
+```
+
+##### Step 7
+
+Execute migrations
+```
+./vendor/bin/sail artisan migrate
+```
+
 Done!
