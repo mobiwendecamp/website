@@ -23,6 +23,7 @@
 		"autoprefixer": "^10.4.20",
 		"bits-ui": "^0.21.16",
 		"clsx": "^2.1.1",
+		"lucide-svelte": "^0.454.0",
 		"mdsvex": "^0.11.2",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
@@ -35,7 +36,6 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "^0.11.1",
-		"lucide-svelte": "^0.454.0",
 		"mode-watcher": "^0.4.1",
 		"svelte-flags": "^2.0.1"
 	}

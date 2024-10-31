@@ -1,5 +1,5 @@
 <script lang="ts">
-import AnimatedLogo from "$lib/components/AnimatedLogo.svelte";
+import AnimatedLogo from "$lib/components/Blocks/AnimatedLogo.svelte";
 import video from '$lib/assets/videos/mobiWende_camp_background.mp4'
 import placeholder from '$lib/assets/images/placeholder-background.jpg'
 import {Twitter} from "lucide-svelte";

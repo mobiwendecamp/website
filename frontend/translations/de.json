@@ -1,0 +1,41 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "hello_world": "Hello, {name} from de!",
+  "münchen": "München",
+  "more_infos_soon": "Mehr Infos bald",
+
+  "camp": "Camp",
+  "camp_description": "Alles über unser Camp",
+
+  "arrvial": "Anreise",
+  "arrvial_description": "Wegbeschreibungen zum Camp",
+
+  "overnight": "Übernachtung",
+  "overnight_description": "Infos zu Schlafmöglichkeiten",
+
+  "food_and_drinks": "Essen und Trinken",
+  "food_and_drinks_description": "Alle Infos zu Essen auf dem Camp",
+
+  "accessibility": "Zugänglichkeit und Assistenz",
+  "accessibility_description": "Alle Infos zu Barrierefreiheit",
+
+  "site_plan": "Lageplan",
+  "participate": "Mitmachen",
+
+
+  "program": "Programm",
+
+  "donations": "Spenden",
+
+  "press": "Presse",
+  "press_description": "Pressekontakte und mehr",
+
+  "artkit": "Artkit",
+  "artkit_description": "Logos und Bildmaterial für Bericherstattung",
+
+  "press_notifications": "Pressemitteilungen",
+  "press_notifications_description": "Aktuelle Pressemitteilungen des Camps",
+
+  "press_references": "Pressespiegel",
+  "press_references_description": "Artikel über das Camp'"
+}
