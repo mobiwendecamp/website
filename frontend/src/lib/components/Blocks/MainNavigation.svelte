@@ -1,23 +1,11 @@
 <script lang="ts">
     import AnimatedLogo from "$lib/components/Blocks/AnimatedLogo.svelte";
     import * as Popover from "$lib/components/ui/popover";
-    import RowItem from "$lib/components/ui/row-items/RowItem.svelte";
     import * as Sheet from "$lib/components/ui/sheet/index.js";
     import * as Accordion from "$lib/components/ui/accordion";
     import {
         ChevronDown,
-        Bed,
-        Map,
-        MapPinned,
-        Utensils,
-        StickyNote,
-        Brush,
-        Accessibility,
-        Tent,
-        Newspaper,
-        X,
-        Megaphone,
-        Handshake, Menu,
+        X, Menu,
     } from "lucide-svelte";
     import DarkModeButton from "$lib/components/Blocks/DarkModeButton.svelte";
     import LanguageSwitch from "$lib/components/Blocks/LanguageSwitch.svelte";

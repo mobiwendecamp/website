@@ -4,6 +4,7 @@
 	import '../app.css';
 	import { ModeWatcher } from "mode-watcher";
 	import MainNavigation from "$lib/components/Blocks/MainNavigation.svelte";
+	import Footer from "$lib/components/Blocks/Footer.svelte";
 	let { children } = $props();
 </script>
 
@@ -11,4 +12,5 @@
 	<ModeWatcher />
 	<MainNavigation></MainNavigation>
 	{@render children()}
+	<Footer></Footer>
 </ParaglideJS>

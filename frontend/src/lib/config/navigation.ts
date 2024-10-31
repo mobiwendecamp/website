@@ -1,7 +1,22 @@
-import {Accessibility, Bed, Brush, MapPinned, Megaphone, Newspaper, StickyNote, Tent, Utensils, Map, Handshake} from "lucide-svelte";
+import {
+    Accessibility,
+    Bed,
+    Brush,
+    MapPinned,
+    Megaphone,
+    Newspaper,
+    StickyNote,
+    Tent,
+    Utensils,
+    Map,
+    Handshake, Twitter
+} from "lucide-svelte";
 import type {Component} from "svelte";
 import * as t from '$lib/paraglide/messages.js';
 import type {Translation} from "$lib/i18n";
+import InstagramIcon from "$lib/components/Atoms/Icons/InstagramIcon.svelte";
+import TelegramIcon from "$lib/components/Atoms/Icons/TelegramIcon.svelte";
+import MastodonIcon from "$lib/components/Atoms/Icons/MastodonIcon.svelte";
 
 
 export interface navigationItem {
@@ -117,4 +132,47 @@ export const mainNavigation: navigationItem[] = [
         ]
 
     }
+]
+
+export const footerNavigation: navigationItem[] = [
+    ...mainNavigation,
+    {
+        id: 'imprint',
+        label: t.imprint,
+        href: '/imprint',
+    },
+    {
+        id: 'data_privacy',
+        label: t.data_privacy,
+        href: '/data_privacy',
+    },
+]
+
+
+export const socialMedia = [
+    {
+        id: 'telegram',
+        label: 'Telegram',
+        icon: TelegramIcon as unknown as Component,
+        href: '/https://t.me/Mobilitaetswendecamp2023',
+    },
+    {
+        id: 'instagram',
+        icon: InstagramIcon as unknown as Component,
+
+        label: 'Instagram',
+        href: 'https://www.instagram.com/mobilitatswendecamp/',
+    },
+    {
+        id: 'twitter',
+        icon: Twitter as unknown as Component,
+        label: 'Twitter',
+        href: 'https://twitter.com/Mobilittswende1',
+    },
+    {
+        id: 'mastodon',
+        icon: MastodonIcon as unknown as Component,
+        label: 'Mastodon',
+        href: 'https://climatejustice.global/@mobilitaetswende_camp_muc',
+    },
 ]
