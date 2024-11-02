@@ -38,7 +38,7 @@
                 </ul>
             </div>
         </div>
-        <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-end lg:mt-24">
+        <div class="mt-16 border-t border-muted-foreground0 pt-8 sm:mt-20 md:flex md:items-center md:justify-end lg:mt-24">
             <div class="flex gap-x-6 md:order-2">
                 {#each socialMedia as social}
                     <a href={social.href} class="text-gray-600 hover:text-gray-800">
