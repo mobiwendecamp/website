@@ -21,8 +21,9 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"autoprefixer": "^10.4.20",
-		"bits-ui": "^0.21.16",
+		"bits-ui": "^1.0.0-next.39",
 		"clsx": "^2.1.1",
+		"embla-carousel-svelte": "^8.3.1",
 		"lucide-svelte": "^0.454.0",
 		"mdsvex": "^0.11.2",
 		"svelte": "^5.0.0",
@@ -37,6 +38,8 @@
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "^0.11.1",
 		"@std/toml": "npm:@jsr/std__toml@^1.0.1",
+		"embla-carousel-auto-scroll": "^8.3.1",
+		"embla-carousel-autoplay": "^8.3.1",
 		"mode-watcher": "^0.4.1",
 		"svelte-flags": "^2.0.1"
 	}

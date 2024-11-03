@@ -6,14 +6,14 @@
     import MainNavigation from "$lib/components/Blocks/MainNavigation.svelte";
     import Footer from "$lib/components/Blocks/Footer.svelte";
 
-    let {children} = $props();
+    let { children } = $props();
 </script>
 
 <ParaglideJS {i18n}>
-    <!--	<ModeWatcher />-->
+    <ModeWatcher />
     <MainNavigation></MainNavigation>
-    <main>
-        {@render children()}
+    <main class="text-foreground">
+        {@render children?.()}
     </main>
     <Footer></Footer>
 </ParaglideJS>

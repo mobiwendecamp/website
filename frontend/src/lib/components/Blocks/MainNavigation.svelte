@@ -5,7 +5,7 @@
     import * as Accordion from "$lib/components/ui/accordion";
     import {
         ChevronDown,
-        X, Menu,
+        X, Menu, Languages,
     } from "lucide-svelte";
     import DarkModeButton from "$lib/components/Blocks/DarkModeButton.svelte";
     import LanguageSwitch from "$lib/components/Blocks/LanguageSwitch.svelte";
@@ -94,7 +94,7 @@
 
     <!-- Mobile menu, show/hide based on menu open state. -->
     <Sheet.Root bind:open={mobileOpen}>
-        <Sheet.Content side="right" class="lg:hidden" overlayClass="lg:hidden">
+        <Sheet.Content side="right" class="lg:hidden">
             <div role="dialog" aria-modal="true">
                 <div class="fixed inset-y-0 right-0 z-10 flex w-full flex-col justify-between overflow-y-auto bg-background/90 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div class="p-6">
@@ -102,10 +102,13 @@
                             <a href="/" class="-m-1.5 p-1.5">
                                 <AnimatedLogo class="h-16 text-foreground"/>
                             </a>
-                            <Sheet.Close asChild let:builder>
-                                <Button builders={[builder]} size="icon" variant="ghost">
-                                    <X/>
-                                </Button>
+                            <Sheet.Close>
+                                {#snippet child({ props })}
+                                    <Button {...props} size="icon" variant="ghost">
+                                        <X/>
+                                    </Button>
+                                {/snippet}
+
                             </Sheet.Close>
 
                         </div>

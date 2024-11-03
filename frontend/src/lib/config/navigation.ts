@@ -9,7 +9,10 @@ import {
     Tent,
     Utensils,
     Map,
-    Handshake, Twitter
+    Handshake, Twitter,
+    HeartHandshake,
+    ScrollText,
+    LifeBuoy,
 } from "lucide-svelte";
 import type {Component} from "svelte";
 import * as t from '$lib/paraglide/messages.js';
@@ -131,7 +134,30 @@ export const mainNavigation: navigationItem[] = [
             },
         ]
 
-    }
+    },
+    {
+        id: 'awareness',
+        label: t.awareness,
+        href: '/',
+        icon: LifeBuoy as unknown as Component,
+        description: t.awareness_description,
+        children: [
+            {
+                id: 'code_of_conduct',
+                label: t.code_of_conduct,
+                icon: HeartHandshake as unknown as Component,
+                description: t.code_of_conduct_description,
+                href: '/',
+            },
+            {
+                id: 'self_image',
+                label: t.self_image,
+                icon: ScrollText as unknown as Component,
+                description: t.self_image_description,
+                href: '/',
+            },
+        ]
+    },
 ]
 
 export const footerNavigation: navigationItem[] = [

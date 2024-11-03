@@ -8,13 +8,9 @@
 		class: className,
 		children,
 		...restProps
-	}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();
+	}: WithElementRef<HTMLAttributes<HTMLParagraphElement>> = $props();
 </script>
 
-<div
-	bind:this={ref}
-	class={cn("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", className)}
-	{...restProps}
->
+<p bind:this={ref} class={cn("text-muted-foreground text-sm", className)} {...restProps}>
 	{@render children?.()}
-</div>
+</p>

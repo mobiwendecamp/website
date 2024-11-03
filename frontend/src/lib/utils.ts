@@ -2,8 +2,9 @@ import {type ClassValue, clsx} from "clsx";
 import {twMerge} from "tailwind-merge";
 import {cubicOut} from "svelte/easing";
 import type {TransitionConfig} from "svelte/transition";
-import {availableLanguageTags} from "$lib/paraglide/runtime";
+import {availableLanguageTags, languageTag} from "$lib/paraglide/runtime";
 import {error} from "@sveltejs/kit";
+import {browser} from "$app/environment";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -152,4 +153,12 @@ export function findPage(path: string, language: typeof availableLanguageTags[nu
     }
 
     return module[1] as ReturnType<typeof findPage>;
+}
+
+export function formatDate(date: Date): string {
+    return new Intl.DateTimeFormat(languageTag(), {
+        day: 'numeric',
+        month: 'numeric',
+        year: '2-digit'
+    }).format(date)
 }

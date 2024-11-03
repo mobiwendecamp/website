@@ -2,10 +2,15 @@
     import AnimatedLogo from "$lib/components/Blocks/AnimatedLogo.svelte";
     import video from '$lib/assets/videos/mobiWende_camp_background.mp4'
     import placeholder from '$lib/assets/images/placeholder-background.jpg'
-    import {Twitter} from "lucide-svelte";
+    import {Bike, Flower, Flower2, Twitter} from "lucide-svelte";
 
     import * as m from '$lib/paraglide/messages.js';
     import {socialMedia} from "$lib/config/navigation";
+    import {formatDate} from "$lib/utils";
+    import {end_date, start_date} from "$lib/config/site";
+    import ProgramSection from "$lib/components/Blocks/ProgramSection.svelte";
+    import NewsSection from "$lib/components/Blocks/NewsSection.svelte";
+    import CallToActionSection from "$lib/components/Blocks/CallToActionSection.svelte";
 
 </script>
 
@@ -15,21 +20,15 @@
            class="absolute object-cover top-0 bottom-0 right-0 left-0 min-h-full max-h-screen min-w-full">
         <source src={video} type="video/mp4">
     </video>
-    <div class="absolute w-full h-full bg-zinc-900/50 text-zinc-100 leading-relaxed"
+    <div class="absolute w-full h-full bg-gradient-to-t from-background to-muted/50 to-30% text-foreground leading-relaxed"
          style="font-family: 'Boogaloo', sans-serif;">
         <div style="justify-content: safe center;"
              class="flex h-full flex-col items-center text-2xl md:text-4xl mx-auto py-2 overflow-auto">
-
-            <div id="soon"
-                 class="uppercase text-center bg-zinc-800/80 px-3 py-1 rounded-full text-xl opacity-0 md:text-3xl">
-                {m.more_infos_soon()}
-            </div>
-
             <div class="tracking-widest opacity-0 mt-2 text-center"
                  id="camp-date">
-                <time datetime="2025-09-09">09.09</time>
+                <time datetime={start_date.toISOString().split('T')[0]}>{formatDate(start_date)}</time>
                 -
-                <time datetime="2025-09-14">14.09</time>
+                <time datetime={end_date.toISOString().split('T')[0]}>{formatDate(end_date)}</time>
             </div>
 
             <div id="camp-logo"
@@ -56,7 +55,7 @@
 
             <div id="socials" class="opacity-0 text-zinc-100 flex justify-center space-x-5 mt-2 md:mt-4">
                 {#each socialMedia as social}
-                    <a href={social.href} class="text-zinc-200 hover:text-zinc-300"
+                    <a href={social.href} class="text-muted-foreground hover:text-foreground"
                        title="Telegram">
                         <span class="sr-only">{social.label}</span>
                         <social.icon class="h-6 w-6"></social.icon>
@@ -67,12 +66,46 @@
         </div>
 
     </div>
-
-    <div class="absolute bottom-2 right-5 text-zinc-400 text-sm"><a href="/imprint">Impressum</a></div>
 </section>
 
-<section class="h-screen bg-primary"></section>
-<section class="h-screen bg-foreground"></section>
+
+<section class="bg-background mx-auto max-w-7xl p-3 py-20 lg:px-6 text-2xl text-center">
+    <h2 class="text-4xl font-semibold tracking-tight  sm:text-5xl mb-3">Das Mobilitätswende Camp geht weiter!</h2>
+    <p class="text-balance">
+        Auch {start_date.getFullYear()} werden wir wieder unserm Camp für eine echte Mobilitätswende in München
+        veranstallten. Mit einem bunten Angebot aus Workshops,
+        Vorträgen, Kunst, Musik und vielen mehr.
+        <br>
+        <span class="font-semibold inline-block mt-2">
+
+        Sei dabei! {formatDate(start_date)} – {formatDate(start_date)} in München.
+        </span>
+    </p>
+</section>
+
+<div class="border-b-4 relative border-foreground border-dashed mb-20 overflow-hidden">
+    <div id="bike" class="-ml-20">
+        <Bike class="w-auto h-16"></Bike>
+    </div>
+    <div class="grid grid-cols-8 items-center absolute w-full bottom-0">
+        <div class="col-span-2 place-items-center">
+
+            <Flower2></Flower2>
+        </div>
+        <div class="col-span-3 place-items-center">
+
+            <Flower2></Flower2>
+        </div>
+        <div class="col-span-3 place-items-center">
+
+            <Flower2></Flower2>
+        </div>
+    </div>
+</div>
+
+<ProgramSection></ProgramSection>
+<NewsSection></NewsSection>
+<CallToActionSection></CallToActionSection>
 <style>
 
     #soon, #socials {
@@ -93,6 +126,22 @@
     #camp-location {
         animation: entry-zoom 2s ease forwards;
         animation-delay: 1.3s;
+    }
+
+    #bike {
+        animation: bikeAnimation 16s linear infinite;
+    }
+
+    @keyframes bikeAnimation {
+        0% {
+            translate: 0 0;
+        }
+        50% {
+            translate: 100%;
+        }
+        100% {
+            translate: 100%;
+        }
     }
 
     @keyframes entry-zoom {

@@ -7,13 +7,14 @@
     import * as Popover from "$lib/components/ui/popover";
     import {De, Gb} from 'svelte-flags';
     import type {AvailableLanguageTag} from '$lib/paraglide/runtime';
-    import {languageTag} from '$lib/paraglide/runtime';
+    import {languageTag, setLanguageTag} from '$lib/paraglide/runtime';
     import * as m from '$lib/paraglide/messages.js';
     import DgsIcon from "$lib/components/Atoms/Icons/DgsIcon.svelte";
 
     function switchToLanguage(newLanguage: AvailableLanguageTag) {
         const canonicalPath = i18n.route($page.url.pathname);
         const localisedPath = i18n.resolveRoute(canonicalPath, newLanguage);
+        setLanguageTag(newLanguage);
         goto(localisedPath);
     }
 
@@ -34,12 +35,13 @@
 </script>
 <Popover.Root>
     <Popover.Trigger
-            asChild
-            let:builder
             class="flex items-center gap-x-1 text-sm/6 font-semibold text-foreground">
-        <Button builders={[builder]} variant="ghost" size="icon">
-            <Languages class="h-5 w-5 overflow-hidden rounded-full"></Languages>
-        </Button>
+        {#snippet child({ props })}
+            <Button  {...props} variant="ghost" size="icon">
+                <Languages class="h-5 w-5 overflow-hidden rounded-full"></Languages>
+            </Button>
+        {/snippet}
+
 
     </Popover.Trigger>
     <Popover.Content class="p-4 w-auto">
@@ -48,9 +50,9 @@
                     class:bg-muted={languageTag() === code}
                     onclick={() => switchToLanguage(code)}>
                 <span class="w-20 flex justify-center">
-                <svelte:component this={language.icon}
+                <language.icon
                                   class="h-10 {code === 'dgs' ? 'w-20' : 'w-10'}"
-                ></svelte:component>
+                ></language.icon>
                 </span>
                 <span class="block font-semibold">
                             {language.label}
