@@ -144,7 +144,7 @@ export const footerNavigation: navigationItem[] = [
     {
         id: 'data_privacy',
         label: t.data_privacy,
-        href: '/data_privacy',
+        href: '/',
     },
 ]
 
@@ -154,7 +154,7 @@ export const socialMedia = [
         id: 'telegram',
         label: 'Telegram',
         icon: TelegramIcon as unknown as Component,
-        href: '/https://t.me/Mobilitaetswendecamp2023',
+        href: 'https://t.me/Mobilitaetswendecamp2023',
     },
     {
         id: 'instagram',

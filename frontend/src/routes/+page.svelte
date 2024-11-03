@@ -72,7 +72,7 @@
 </section>
 
 <section class="h-screen bg-primary"></section>
-<section class="h-screen bg-background"></section>
+<section class="h-screen bg-foreground"></section>
 <style>
 
     #soon, #socials {
