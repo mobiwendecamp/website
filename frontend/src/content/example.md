@@ -1,21 +1,10 @@
 +++
-title = "TOML Example" # Some Comment
-publishe = 1879-05-27 # bool or date
+title = "TOML Example" # The Title of the Page
+published = 2024-05-27 # bool or date (true, false or YYYY-mm-dd)
 +++
 
----
-__Advertisement :)__
 
-- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
-  resize in browser.
-- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
-  i18n with plurals support and easy syntax.
-
-You will like those projects!
-
----
-
-# h1 Heading 8-)
+# h1 Heading
 ## h2 Heading
 ### h3 Heading
 #### h4 Heading
