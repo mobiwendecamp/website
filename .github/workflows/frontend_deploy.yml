@@ -15,13 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: cd frontend && npm install
       - name: vercel-deploy
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT: ${{ secrets.VERCEL_PROJECT }}
         run: |
           if [[ "${{ env.PRODUCTION_BRANCH }}" == "${{ github.ref_name }}" ]]; then
-            vercel --prod --yes
+            npx vercel --prod --yes
           else
-            vercel --yes
+            npx vercel --yes
           fi
