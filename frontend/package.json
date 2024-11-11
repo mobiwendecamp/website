@@ -11,8 +11,8 @@
 		"test:e2e": "playwright test",
 		"test": "npm run test:e2e && npm run test:unit -- --run",
 		"test:unit": "vitest",
-    "clean": "npx run-func ./scripts/content.js clean",
-    "copy": "npx run-func ./scripts/content.js copy"
+		"clean": "npx run-func ./scripts/content.js clean",
+		"copy": "npx run-func ./scripts/content.js copy"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
