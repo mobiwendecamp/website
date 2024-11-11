@@ -16,11 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: cd frontend && npm install
-      - name: vercel-deploy
+      - name: vercel-link
         run: |
           npx vercel link --yes --project '${{ vars.VERCEL_PROJECT }}' --token '${{ secrets.VERCEL_TOKEN }}'
+      - name: vercel-deploy
+        run: |
           if [[ "${{ env.PRODUCTION_BRANCH }}" == "${{ github.ref_name }}" ]]; then
-            npx vercel --prod --yes
+            npx vercel deploy --prod --yes
           else
-            npx vercel --yes
+            npx vercel deploy --yes
           fi
