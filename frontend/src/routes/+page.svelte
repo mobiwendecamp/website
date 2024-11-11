@@ -2,15 +2,11 @@
     import AnimatedLogo from "$lib/components/Blocks/AnimatedLogo.svelte";
     import video from '$lib/assets/videos/mobiWende_camp_background.mp4'
     import placeholder from '$lib/assets/images/placeholder-background.jpg'
-    import {Bike, Flower, Flower2, Twitter} from "lucide-svelte";
 
     import * as m from '$lib/paraglide/messages.js';
     import {socialMedia} from "$lib/config/navigation";
     import {formatDate} from "$lib/utils";
     import {end_date, start_date} from "$lib/config/site";
-    import ProgramSection from "$lib/components/Blocks/ProgramSection.svelte";
-    import NewsSection from "$lib/components/Blocks/NewsSection.svelte";
-    import CallToActionSection from "$lib/components/Blocks/CallToActionSection.svelte";
 
 </script>
 
@@ -24,6 +20,9 @@
          style="font-family: 'Boogaloo', sans-serif;">
         <div style="justify-content: safe center;"
              class="flex h-full flex-col items-center text-2xl md:text-4xl mx-auto py-2 overflow-auto">
+            <div id="soon" class="uppercase text-center bg-background/80 px-3 py-1 rounded-full text-xl opacity-0 md:text-3xl">
+
+                {m.more_infos_soon()}</div>
             <div class="tracking-widest opacity-0 mt-2 text-center"
                  id="camp-date">
                 <time datetime={start_date.toISOString().split('T')[0]}>{formatDate(start_date)}</time>
@@ -63,52 +62,15 @@
                 {/each}
             </div>
 
+            <a href="/imprint" id="imprint" class="opacity-0 text-muted-foreground text-sm mt-4">Impressum</a>
         </div>
-
     </div>
+
 </section>
 
-
-<section class="bg-background mx-auto max-w-7xl p-3 py-20 lg:px-6 text-2xl text-center">
-    <h2 class="text-4xl font-semibold tracking-tight  sm:text-5xl mb-3">Das Mobilitätswende Camp geht weiter!</h2>
-    <p class="text-balance">
-        Auch {start_date.getFullYear()} werden wir wieder unserm Camp für eine echte Mobilitätswende in München
-        veranstallten. Mit einem bunten Angebot aus Workshops,
-        Vorträgen, Kunst, Musik und vielen mehr.
-        <br>
-        <span class="font-semibold inline-block mt-2">
-
-        Sei dabei! {formatDate(start_date)} – {formatDate(start_date)} in München.
-        </span>
-    </p>
-</section>
-
-<div class="border-b-4 relative border-foreground border-dashed mb-20 overflow-hidden">
-    <div id="bike" class="-ml-20">
-        <Bike class="w-auto h-16"></Bike>
-    </div>
-    <div class="grid grid-cols-8 items-center absolute w-full bottom-0">
-        <div class="col-span-2 place-items-center">
-
-            <Flower2></Flower2>
-        </div>
-        <div class="col-span-3 place-items-center">
-
-            <Flower2></Flower2>
-        </div>
-        <div class="col-span-3 place-items-center">
-
-            <Flower2></Flower2>
-        </div>
-    </div>
-</div>
-
-<ProgramSection></ProgramSection>
-<NewsSection></NewsSection>
-<CallToActionSection></CallToActionSection>
 <style>
 
-    #socials {
+   #soon, #imprint, #socials {
         animation: entry-zoom 1s ease forwards;
         animation-delay: 3s;
     }
@@ -128,9 +90,6 @@
         animation-delay: 1.3s;
     }
 
-    #bike {
-        animation: bikeAnimation 16s linear infinite;
-    }
 
     @keyframes bikeAnimation {
         0% {
