@@ -22,7 +22,7 @@ jobs:
       - name: vercel-deploy
         run: |
           if [[ "${{ env.PRODUCTION_BRANCH }}" == "${{ github.ref_name }}" ]]; then
-            npx vercel deploy --prod --yes
+            npx vercel deploy --token '${{ secrets.VERCEL_TOKEN }}' --yes --prod
           else
-            npx vercel deploy --yes
+            npx vercel deploy --token '${{ secrets.VERCEL_TOKEN }}' --yes
           fi
