@@ -12,10 +12,13 @@ env:
 
 jobs:
   deploy:
+    defaults:
+      run:
+        working-directory: ./frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: cd frontend && npm install
+      - run: npm install
       - name: vercel-link
         run: |
           npx vercel link --yes --project '${{ vars.VERCEL_PROJECT }}' --token '${{ secrets.VERCEL_TOKEN }}'
