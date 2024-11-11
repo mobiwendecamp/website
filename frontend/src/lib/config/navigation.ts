@@ -14,7 +14,8 @@ import {
     ScrollText,
     LifeBuoy,
 } from "lucide-svelte";
-import type {Component} from "svelte";
+import type {Icon} from "lucide-svelte";
+import type {Component,ComponentType} from "svelte";
 import * as t from '$lib/paraglide/messages.js';
 import type {Translation} from "$lib/i18n";
 import InstagramIcon from "$lib/components/Atoms/Icons/InstagramIcon.svelte";
@@ -30,7 +31,7 @@ export interface navigationItem {
     id: string,
     label: Translation,
     description?: Translation,
-    icon?: Component
+    icon?: Component | ComponentType<Icon>;
     image?: string
     href: string
     children?: navigationItemChild[]
@@ -42,7 +43,7 @@ export interface navigationItemChild {
     label: Translation,
     image?: string
     description?: Translation,
-    icon?: Component
+    icon?: Component | ComponentType<Icon>,
     href: string
 }
 
@@ -51,13 +52,13 @@ export const campNavigation:navigationItem = {
     label: t.camp,
     image: heroImage,
     description: t.camp_description,
-    icon: Tent as unknown as Component,
+    icon: Tent,
     href: '/camp',
     children: [
         {
             id: 'arrival',
             label: t.arrvial,
-            icon: MapPinned as unknown as Component,
+            icon: MapPinned,
             description: t.camp_description,
             href: '/camp/arrival',
             image: hero2Image,
@@ -66,7 +67,7 @@ export const campNavigation:navigationItem = {
         {
             id: 'overnight',
             label: t.overnight,
-            icon: Bed as unknown as Component,
+            icon: Bed,
             image: hero3Image,
             description: t.overnight_description,
             href: '/camp/overnight',
@@ -75,7 +76,7 @@ export const campNavigation:navigationItem = {
             id: 'food',
             label: t.food_and_drinks,
             image: hero4Image,
-            icon: Utensils as unknown as Component,
+            icon: Utensils,
             description: t.food_and_drinks_description,
             href: '/camp/food',
         },
@@ -83,7 +84,7 @@ export const campNavigation:navigationItem = {
             id: 'accessibility',
             label: t.accessibility,
             image: hero5Image,
-            icon: Accessibility as unknown as Component,
+            icon: Accessibility,
             description: t.accessibility_description,
             href: '/camp/accessibility',
         }
@@ -92,13 +93,13 @@ export const campNavigation:navigationItem = {
         {
             id: 'site_plan',
             label: t.site_plan,
-            icon: Map as unknown as Component,
+            icon: Map,
             href: '/',
         },
         {
             id: 'participate',
             label: t.participate,
-            icon: Handshake as unknown as Component,
+            icon: Handshake,
             href: '/',
         },
     ]
@@ -119,27 +120,27 @@ export const mainNavigation: navigationItem[] = [
         id: 'press',
         label: t.press,
         href: '/',
-        icon: Newspaper as unknown as Component,
+        icon: Newspaper,
         description: t.press_description,
         children: [
             {
                 id: 'artkit',
                 label: t.artkit,
-                icon: Brush as unknown as Component,
+                icon: Brush,
                 description: t.artkit_description,
                 href: '/',
             },
             {
                 id: 'press_notifications',
                 label: t.press_notifications,
-                icon: Megaphone as unknown as Component,
+                icon: Megaphone,
                 description: t.press_notifications_description,
                 href: '/',
             },
             {
                 id: 'press_references',
                 label: t.press_references,
-                icon: StickyNote as unknown as Component,
+                icon: StickyNote,
                 description: t.press_references_description,
                 href: '/',
             },
@@ -150,20 +151,20 @@ export const mainNavigation: navigationItem[] = [
         id: 'awareness',
         label: t.awareness,
         href: '/',
-        icon: LifeBuoy as unknown as Component,
+        icon: LifeBuoy,
         description: t.awareness_description,
         children: [
             {
                 id: 'code_of_conduct',
                 label: t.code_of_conduct,
-                icon: HeartHandshake as unknown as Component,
+                icon: HeartHandshake,
                 description: t.code_of_conduct_description,
                 href: '/',
             },
             {
                 id: 'self_image',
                 label: t.self_image,
-                icon: ScrollText as unknown as Component,
+                icon: ScrollText,
                 description: t.self_image_description,
                 href: '/',
             },
@@ -190,25 +191,25 @@ export const socialMedia = [
     {
         id: 'telegram',
         label: 'Telegram',
-        icon: TelegramIcon as unknown as Component,
+        icon: TelegramIcon,
         href: 'https://t.me/Mobilitaetswendecamp2023',
     },
     {
         id: 'instagram',
-        icon: InstagramIcon as unknown as Component,
+        icon: InstagramIcon,
 
         label: 'Instagram',
         href: 'https://www.instagram.com/mobilitatswendecamp/',
     },
     {
         id: 'twitter',
-        icon: Twitter as unknown as Component,
+        icon: Twitter,
         label: 'Twitter',
         href: 'https://twitter.com/Mobilittswende1',
     },
     {
         id: 'mastodon',
-        icon: MastodonIcon as unknown as Component,
+        icon: MastodonIcon,
         label: 'Mastodon',
         href: 'https://climatejustice.global/@mobilitaetswende_camp_muc',
     },
