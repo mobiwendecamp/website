@@ -36,6 +36,18 @@ return [
             'serve' => true,
             'throw' => false,
         ],
+        'frontend' => [
+            'driver' => 'local',
+            'root' => base_path('./../frontend'),
+            'throw' => false,
+        ],
+
+        'nextcloud' => [
+            'driver'     => 'nextcloud',
+            'baseUri'    => 'https://cloud.systemli.org',
+            'userName'   => env('NEXTCLOUD_USERNAME'),
+            'password'   => env('NEXTCLOUD_PASSWORD'),
+        ],
 
         'public' => [
             'driver' => 'local',
