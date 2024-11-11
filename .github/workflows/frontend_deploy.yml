@@ -18,6 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: setup-env
+        run: |
+          echo 'NEXTCLOUD_USERNAME=${{ secrets.NEXTCLOUD_USERNAME }}' >> .env
+          echo 'NEXTCLOUD_PASSWORD=${{ secrets.NEXTCLOUD_PASSWORD }}' >>.env
+          echo 'NEXTCLOUD_PATH=${{ secrets.NEXTCLOUD_PATH }}' >> .env
+          echo 'NEXTCLOUD_BASE_URL= ${{ secrets.NEXTCLOUD_BASE_URL }}' >> .env
       - run: npm install
       - name: vercel-link
         run: |
