@@ -1,0 +1,27 @@
+name: Vercel Deployment
+
+on:
+  push:
+    branches:
+      - placeholder
+      - main
+
+env:
+  PRODUCTION_BRANCH: placeholder
+  PREVIEW_BRANCH: main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: vercel-deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT: ${{ secrets.VERCEL_PROJECT }}
+        run: |
+          if [[ "${{ env.PRODUCTION_BRANCH }}" == "${{ github.ref_name }}" ]]; then
+            vercel --prod --yes
+          else
+            vercel --yes
+          fi
