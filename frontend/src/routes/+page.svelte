@@ -108,7 +108,7 @@
 <CallToActionSection></CallToActionSection>
 <style>
 
-    #soon, #socials {
+    #socials {
         animation: entry-zoom 1s ease forwards;
         animation-delay: 3s;
     }

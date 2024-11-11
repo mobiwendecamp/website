@@ -16,6 +16,13 @@ const config: Config = {
             }
         },
         extend: {
+            typography: (theme) => ({
+                DEFAULT: {
+                    css: {
+                        color: theme('colors.foreground'),
+                    },
+                },
+            }),
             colors: {
                 border: "hsl(var(--border) / <alpha-value>)",
                 input: "hsl(var(--input) / <alpha-value>)",

@@ -20,13 +20,18 @@ import type {Translation} from "$lib/i18n";
 import InstagramIcon from "$lib/components/Atoms/Icons/InstagramIcon.svelte";
 import TelegramIcon from "$lib/components/Atoms/Icons/TelegramIcon.svelte";
 import MastodonIcon from "$lib/components/Atoms/Icons/MastodonIcon.svelte";
-
+import heroImage from '$lib/assets/images/heros/hero_1.jpg';
+import hero2Image from '$lib/assets/images/heros/hero_2.jpg';
+import hero3Image from '$lib/assets/images/heros/hero_3.jpg';
+import hero4Image from '$lib/assets/images/heros/hero_4.jpg';
+import hero5Image from '$lib/assets/images/heros/hero_5.jpg';
 
 export interface navigationItem {
     id: string,
     label: Translation,
     description?: Translation,
     icon?: Component
+    image?: string
     href: string
     children?: navigationItemChild[]
     footer?: navigationItemChild[]
@@ -35,65 +40,71 @@ export interface navigationItem {
 export interface navigationItemChild {
     id: string,
     label: Translation,
+    image?: string
     description?: Translation,
     icon?: Component
     href: string
 }
 
+export const campNavigation:navigationItem = {
+    id: 'camp',
+    label: t.camp,
+    image: heroImage,
+    description: t.camp_description,
+    icon: Tent as unknown as Component,
+    href: '/camp',
+    children: [
+        {
+            id: 'arrival',
+            label: t.arrvial,
+            icon: MapPinned as unknown as Component,
+            description: t.camp_description,
+            href: '/camp/arrival',
+            image: hero2Image,
+
+        },
+        {
+            id: 'overnight',
+            label: t.overnight,
+            icon: Bed as unknown as Component,
+            image: hero3Image,
+            description: t.overnight_description,
+            href: '/camp/overnight',
+        },
+        {
+            id: 'food',
+            label: t.food_and_drinks,
+            image: hero4Image,
+            icon: Utensils as unknown as Component,
+            description: t.food_and_drinks_description,
+            href: '/camp/food',
+        },
+        {
+            id: 'accessibility',
+            label: t.accessibility,
+            image: hero5Image,
+            icon: Accessibility as unknown as Component,
+            description: t.accessibility_description,
+            href: '/camp/accessibility',
+        }
+    ],
+    footer: [
+        {
+            id: 'site_plan',
+            label: t.site_plan,
+            icon: Map as unknown as Component,
+            href: '/',
+        },
+        {
+            id: 'participate',
+            label: t.participate,
+            icon: Handshake as unknown as Component,
+            href: '/',
+        },
+    ]
+};
 export const mainNavigation: navigationItem[] = [
-    {
-        id: 'camp',
-        label: t.camp,
-        description: t.camp_description,
-        icon: Tent as unknown as Component,
-        href: '/',
-        children: [
-            {
-                id: 'arrival',
-                label: t.arrvial,
-                icon: MapPinned as unknown as Component,
-                description: t.camp_description,
-                href: '/',
-            },
-
-            {
-                id: 'overnight',
-                label: t.overnight,
-                icon: Bed as unknown as Component,
-                description: t.overnight_description,
-                href: '/',
-            },
-
-            {
-                id: 'food',
-                label: t.food_and_drinks,
-                icon: Utensils as unknown as Component,
-                description: t.food_and_drinks_description,
-                href: '/',
-            },
-            {
-                id: 'accessibility',
-                label: t.accessibility,
-                icon: Accessibility as unknown as Component,
-                description: t.accessibility_description,
-                href: '/',
-            }
-        ],
-        footer: [
-            {
-                id: 'site_plan',
-                label: t.site_plan,
-                icon: Map as unknown as Component,
-                href: '/',
-            },
-            {
-                id: 'participate',
-                label: t.participate,
-                icon: Handshake as unknown as Component,
-                href: '/',
-            },
-        ]
-    },
+    campNavigation,
     {
         id: 'program',
         label: t.program,

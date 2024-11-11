@@ -15,6 +15,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
 		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/enhanced-img": "^0.4.1",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@tailwindcss/container-queries": "^0.1.1",
@@ -26,8 +27,10 @@
 		"embla-carousel-svelte": "^8.3.1",
 		"lucide-svelte": "^0.454.0",
 		"mdsvex": "^0.11.2",
+		"sharp": "^0.33.5",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
+		"svgo": "^3.3.2",
 		"tailwind-merge": "^2.5.4",
 		"tailwind-variants": "^0.2.1",
 		"tailwindcss": "^3.4.9",
@@ -40,7 +43,9 @@
 		"@std/toml": "npm:@jsr/std__toml@^1.0.1",
 		"embla-carousel-auto-scroll": "^8.3.1",
 		"embla-carousel-autoplay": "^8.3.1",
+		"leaflet": "^1.9.4",
 		"mode-watcher": "^0.4.1",
-		"svelte-flags": "^2.0.1"
+		"svelte-flags": "^2.0.1",
+		"unist-util-visit": "^5.0.0"
 	}
 }

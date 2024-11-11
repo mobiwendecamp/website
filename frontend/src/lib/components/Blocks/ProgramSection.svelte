@@ -59,8 +59,11 @@
                                     loop: true,
                                     align: "start"
                                   }}
-                            class="p-10 w-full"
+                            class="py-5 px-10 w-full"
                     >
+
+                        <div class="absolute h-full w-10  bg-gradient-to-r from-card top-0 z-10"></div>
+                        <div class="absolute h-full w-10  bg-gradient-to-l from-card top-0 right-10 z-10"></div>
                         <Carousel.Content class="space-x-4">
                             <div class="w-2"></div>
                             {#each guests as guest}
@@ -112,34 +115,40 @@
                 </div>
             </div>
             <div class="flex p-px lg:col-span-4 ring-1  bg-card rounded-lg ring-muted-foreground/15  max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]">
-                <div class="overflow-hidden">
-                        <Carousel.Root
-                                plugins={[
-        AutoScroll({
+                <div class="overflow-hidden w-full relative">
+
+                    <Carousel.Root
+                            plugins={[
+                                AutoScroll({
+                                direction: "backward",
                                       speed: .5,
                                       stopOnMouseEnter: true,
                                         stopOnInteraction: false
                                     }),
                                   ]}
-                                opts={{
+                            opts={{
                                     loop: true,
                                     align: "start"
                                   }}
-                                class="p-10 w-full"
-                        >
-                            <Carousel.Content class="space-x-4">
-                                <div class="w-2"></div>
-                                {#each guests as guest}
-                                    <Carousel.Item
-                                            class="md:basis-1/2 lg:basis-1/3 max-w-xs max-h-full bg-muted p-4 rounded-2xl">
-                                        <img class="mx-auto rounded-full aspect-square object-cover"
-                                             src={guest.img} alt={guest.name}>
-                                        <h3 class="mt-6 text-base/7 font-semibold tracking-tight">{guest.name}</h3>
-                                        <p class="text-sm/6 text-muted-foreground0">{guest.role}</p>
-                                    </Carousel.Item>
-                                {/each}
-                            </Carousel.Content>
-                        </Carousel.Root>
+                            class="py-5 px-10 w-full"
+                    >
+
+                        <div class="absolute h-full w-10  bg-gradient-to-r from-card top-0 z-10"></div>
+                        <div class="absolute h-full w-10  bg-gradient-to-l from-card top-0 right-10 z-10"></div>
+
+                        <Carousel.Content class="space-x-4">
+                            <div class="w-2"></div>
+                            {#each guests as guest}
+                                <Carousel.Item
+                                        class="md:basis-1/2 lg:basis-1/3 max-w-xs max-h-full bg-muted p-4 rounded-2xl">
+                                    <img class="mx-auto rounded-full aspect-square object-cover"
+                                         src={guest.img} alt={guest.name}>
+                                    <h3 class="mt-6 text-base/7 font-semibold tracking-tight">{guest.name}</h3>
+                                    <p class="text-sm/6 text-muted-foreground0">{guest.role}</p>
+                                </Carousel.Item>
+                            {/each}
+                        </Carousel.Content>
+                    </Carousel.Root>
                     <div class="p-10">
                         <h3 class="text-sm/4 font-semibold text-muted-foreground">Musik</h3>
                         <p class="mt-2 text-lg font-medium tracking-tight ">Bands und Künstler vor Ort</p>

@@ -4,7 +4,6 @@ import {cubicOut} from "svelte/easing";
 import type {TransitionConfig} from "svelte/transition";
 import {availableLanguageTags, languageTag} from "$lib/paraglide/runtime";
 import {error} from "@sveltejs/kit";
-import {browser} from "$app/environment";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -68,14 +67,16 @@ export const flyAndScale = (
 export async function loadPage(config: {
     page: string,
     language: typeof availableLanguageTags[number],
-    allowSubPages?: boolean,
+    basedir?: string,
 }) {
 
     try {
         const language = config?.language || 'de';
-        let pagePath = config.page;
+        const page = findPage(config.page, language, config.basedir)
 
-        const page = await import(`$content/${pagePath}/${language}.md`);
+        if (!page) {
+            error(404, config.page + ' Not found!');
+        }
 
         return {content: page.default, meta: page.metadata};
     } catch (e) {
@@ -142,9 +143,12 @@ export function findPage(path: string, language: typeof availableLanguageTags[nu
         .replace('..', '')
         .replace(/^\/|\/$/g, '')}/${language}.md`
 
+    if (restrictTo) {
+        restrictTo += '/';
+    }
     targetPath = (restrictTo || '') + targetPath
 
-    const paths = import.meta.glob(`$content/**/**/*.md`, {eager: true})
+    const paths = import.meta.glob(`$content/pages/**/**/*.md`, {eager: true})
     const module = Object.entries(paths)
         .find(([path]) => path.endsWith(targetPath));
 
