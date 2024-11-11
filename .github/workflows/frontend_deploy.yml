@@ -1,0 +1,38 @@
+name: Vercel Deployment
+
+on:
+  push:
+    branches:
+      - placeholder
+      - main
+
+env:
+  PRODUCTION_BRANCH: placeholder
+  PREVIEW_BRANCH: main
+
+jobs:
+  deploy:
+    defaults:
+      run:
+        working-directory: ./frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup-env
+        run: |
+          echo 'NEXTCLOUD_USERNAME=${{ secrets.NEXTCLOUD_USERNAME }}' >> .env
+          echo 'NEXTCLOUD_PASSWORD=${{ secrets.NEXTCLOUD_PASSWORD }}' >>.env
+          echo 'NEXTCLOUD_PATH=${{ secrets.NEXTCLOUD_PATH }}' >> .env
+          echo 'NEXTCLOUD_BASE_URL= ${{ secrets.NEXTCLOUD_BASE_URL }}' >> .env
+      - run: npm install
+      - name: vercel-link
+        run: |
+          npx vercel link --yes --project '${{ vars.VERCEL_PROJECT }}' --token '${{ secrets.VERCEL_TOKEN }}'
+      - name: vercel-deploy
+        run: |
+          if [[ "${{ env.PRODUCTION_BRANCH }}" == "${{ github.ref_name }}" ]]; then
+            npx vercel deploy --token '${{ secrets.VERCEL_TOKEN }}' --yes --prod
+          else
+            npx vercel deploy --token '${{ secrets.VERCEL_TOKEN }}' --yes
+          fi
+
