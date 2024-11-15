@@ -7,8 +7,9 @@
 </script>
 
 
-<Typography class="col-span-4">
+<Typography>
     <data.content/>
 </Typography>
+
 
 

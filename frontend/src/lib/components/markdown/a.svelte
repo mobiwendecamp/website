@@ -1,15 +1,42 @@
 <script lang="ts">
     import type {Snippet} from "svelte";
+    import Youtube from "$lib/components/Atoms/Icons/Youtube.svelte";
+    import {Button} from "$lib/components/ui/button";
 
     const {href, children}: { href: string, children: Snippet } = $props();
+
+    let youtubePermission = $state(false);
+    let isYoutube = $derived(href.startsWith('https://www.youtube.com') || href.startsWith('https://youtu.be'))
+    let youtubeId = $derived.by(() => {
+        const pathParts = new URL(href).pathname.split('/')
+        return pathParts[pathParts.length - 1] || ''
+    })
+
+    function loadYoutube() {
+        youtubePermission = true;
+    }
 </script>
 
-{#if href.startsWith('https://www.youtube.com')}
-<iframe class="aspect-video w-full max-w-xl"  src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=Q6Zs_eu1ka7JgQfy"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{#if isYoutube}
+    <span class="py-2 block">
+        {#if youtubePermission}
+            <iframe class="aspect-video w-full max-w-xl" src="https://www.youtube.com/embed/{youtubeId}"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {:else}
+            <span class="block bg-muted aspect-video w-full max-w-xl flex items-center justify-center flex-col">
+                <Youtube class="w-1/5 text-muted-foreground"/>
+                <Button onclick={loadYoutube} variant="outline">Load Youtube Video. This will load scripts and Cookies
+                    from
+                    Youtube
+                </Button>
+
+                <a {href} target="_blank">Watch on Youtube</a>
+            </span>
+        {/if}
+    </span>
 {:else}
-<a {href}>{@render children()}</a>
+    <a {href}>{@render children()}</a>
 {/if}
 

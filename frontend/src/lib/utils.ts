@@ -72,13 +72,23 @@ export async function loadPage(config: {
 
     try {
         const language = config?.language || 'de';
-        const page = findPage(config.page, language, config.basedir)
+        let page = findPage(config.page, language, config.basedir)
 
-        if (!page) {
-            error(404, config.page + ' Not found!');
+        if (page) {
+            return {content: page.default, meta: page.metadata};
         }
 
-        return {content: page.default, meta: page.metadata};
+        if (language === 'de') {
+            error(404, 'Page not Found')
+        }
+
+        page = findPage(config.page, 'de', config.basedir);
+
+        if (page) {
+            return {content: page.default, meta: page.metadata};
+        }
+
+        error(404, 'Page not Found')
     } catch (e) {
         console.error(e);
         error(400, 'Error');
@@ -102,7 +112,7 @@ export async function loadPageWithSubpages(
             error(404, 'Page not Found')
         }
 
-        module = findPage(page, 'de');
+        module = findPage(page, 'de', restrictTo);
 
         if (module) {
             return {content: module.default, meta: module.metadata};
@@ -138,10 +148,10 @@ export function findPage(path: string, language: typeof availableLanguageTags[nu
             .replace('..', '')
             .replace(/^\/|\/$/g, '')
     }
-
-    let targetPath = `${path.trim()
+    let param = path.trim()
         .replace('..', '')
-        .replace(/^\/|\/$/g, '')}/${language}.md`
+        .replace(/^\/|\/$/g, '')
+    let targetPath = `${param ? param + '/' : ''}${language}.md`
 
     if (restrictTo) {
         restrictTo += '/';

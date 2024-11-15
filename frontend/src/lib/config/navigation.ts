@@ -15,7 +15,7 @@ import {
     LifeBuoy,
 } from "lucide-svelte";
 import type {Icon} from "lucide-svelte";
-import type {Component,ComponentType} from "svelte";
+import type {Component, ComponentType} from "svelte";
 import * as t from '$lib/paraglide/messages.js';
 import type {Translation} from "$lib/i18n";
 import InstagramIcon from "$lib/components/Atoms/Icons/InstagramIcon.svelte";
@@ -47,7 +47,7 @@ export interface navigationItemChild {
     href: string
 }
 
-export const campNavigation:navigationItem = {
+export const campNavigation: navigationItem = {
     id: 'camp',
     label: t.camp,
     image: heroImage,
@@ -104,6 +104,39 @@ export const campNavigation:navigationItem = {
         },
     ]
 };
+
+export const pressNavigation: navigationItem = {
+    id: 'press',
+    label: t.press,
+    href: '/press',
+    icon: Newspaper,
+    description: t.press_description,
+    children: [
+        {
+            id: 'artkit',
+            label: t.artkit,
+            icon: Brush,
+            description: t.artkit_description,
+            href: '/',
+        },
+        {
+            id: 'press_notifications',
+            label: t.press_notifications,
+            icon: Megaphone,
+            description: t.press_notifications_description,
+            href: '/press/releases',
+        },
+        {
+            id: 'press_references',
+            label: t.press_references,
+            icon: StickyNote,
+            description: t.press_references_description,
+            href: '/press/references',
+        },
+    ]
+
+}
+
 export const mainNavigation: navigationItem[] = [
     campNavigation,
     {
@@ -116,41 +149,11 @@ export const mainNavigation: navigationItem[] = [
         label: t.donations,
         href: '/',
     },
-    {
-        id: 'press',
-        label: t.press,
-        href: '/',
-        icon: Newspaper,
-        description: t.press_description,
-        children: [
-            {
-                id: 'artkit',
-                label: t.artkit,
-                icon: Brush,
-                description: t.artkit_description,
-                href: '/',
-            },
-            {
-                id: 'press_notifications',
-                label: t.press_notifications,
-                icon: Megaphone,
-                description: t.press_notifications_description,
-                href: '/',
-            },
-            {
-                id: 'press_references',
-                label: t.press_references,
-                icon: StickyNote,
-                description: t.press_references_description,
-                href: '/',
-            },
-        ]
-
-    },
+    pressNavigation,
     {
         id: 'awareness',
         label: t.awareness,
-        href: '/',
+        href: '/awareness',
         icon: LifeBuoy,
         description: t.awareness_description,
         children: [
@@ -159,14 +162,14 @@ export const mainNavigation: navigationItem[] = [
                 label: t.code_of_conduct,
                 icon: HeartHandshake,
                 description: t.code_of_conduct_description,
-                href: '/',
+                href: '/code-of-conduct',
             },
             {
                 id: 'self_image',
                 label: t.self_image,
                 icon: ScrollText,
                 description: t.self_image_description,
-                href: '/',
+                href: '/self-image',
             },
         ]
     },
@@ -183,6 +186,11 @@ export const footerNavigation: navigationItem[] = [
         id: 'data_privacy',
         label: t.data_privacy,
         href: '/',
+    },
+    {
+        id: 'glossar',
+        label: t.glossar,
+        href: '/glossar',
     },
 ]
 

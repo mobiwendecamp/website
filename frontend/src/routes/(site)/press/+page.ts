@@ -5,13 +5,13 @@ import Sidebar from "./Sidebar.svelte";
 
 export const load = (async ({depends, url}) => {
 
-
     return {
-        ... await loadPage({
-            page: 'camp',
+        ...await loadPage({
+            page: 'press',
             language: getLanguageFromUrl(url.pathname)
         }),
         sidebar: Sidebar
     };
+
 }) satisfies PageLoad;
 

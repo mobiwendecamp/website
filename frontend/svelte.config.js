@@ -2,6 +2,8 @@ import {mdsvex} from "mdsvex";
 import adapter from '@sveltejs/adapter-auto';
 import {vitePreprocess} from '@sveltejs/vite-plugin-svelte';
 import {parse} from "@std/toml";
+import {toKebabCase} from "@std/text";
+
 
 import {visit} from 'unist-util-visit';
 
@@ -15,6 +17,56 @@ function enhancedImage() {
 
     return function transformer(tree) {
         let scripts = "";
+        // Add Ids to Headlines
+        visit(tree, 'heading', node => {
+            const setNodeId = (node, id) => {
+                if (!node.data) node.data = {}
+                if (!node.data.hProperties) node.data.hProperties = {}
+                node.data.id = node.data.hProperties.id = id
+            }
+
+            let lastChild = node.children[node.children.length - 1]
+
+            if (lastChild && lastChild.type === 'text') {
+                let string = lastChild.value.replace(/ +$/, '')
+                let matched = string.match(/ {#([^]+?)}$/)
+
+                if (matched) {
+                    let id = matched[1]
+                    if (!!id.length) {
+                        setNodeId(node, id)
+
+                        string = string.substring(0, matched.index)
+                        lastChild.value = string
+                        return
+                    }
+                }
+            }
+
+
+            const getDefaultId = children => {
+                let text = children
+                    .map(child => {
+                        if (child.value && child.value !== '') {
+
+                            return child.value
+                        }
+
+                        if (child.children && child.children.length > 0) {
+                            return extractText(child.children)
+                        }
+
+                        return ''
+                    })
+                    .join(' ')
+                    .trim();
+
+                return toKebabCase(text)
+            }
+
+
+            setNodeId(node, getDefaultId(node.children))
+        })
 
         // Enhance Images
         visit(tree, 'image', (node) => {

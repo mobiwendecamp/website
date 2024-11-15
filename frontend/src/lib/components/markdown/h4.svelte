@@ -5,7 +5,7 @@
     const {children, ...rest}: { children?: Snippet } = $props();
 </script>
 
-<Headline tag="h2" class="text-3xl" {...rest}>
+<Headline tag="h4" {...rest}>
     {@render children?.()}
 </Headline>
 

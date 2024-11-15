@@ -1,17 +1,14 @@
 import type {PageLoad} from './$types';
+import {error} from '@sveltejs/kit';
 import {getLanguageFromUrl, loadPage} from "$lib/utils";
-import Sidebar from "./Sidebar.svelte";
 
 
 export const load = (async ({depends, url}) => {
 
-
-    return {
-        ... await loadPage({
-            page: 'camp',
+        return loadPage({
+            page: 'self-image',
             language: getLanguageFromUrl(url.pathname)
-        }),
-        sidebar: Sidebar
-    };
+        });
+
 }) satisfies PageLoad;
 
