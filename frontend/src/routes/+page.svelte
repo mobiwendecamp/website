@@ -11,7 +11,9 @@
     import ProgramSection from "$lib/components/Blocks/ProgramSection.svelte";
     import NewsSection from "$lib/components/Blocks/NewsSection.svelte";
     import CallToActionSection from "$lib/components/Blocks/CallToActionSection.svelte";
+    import type {PageData} from './$types';
 
+    const {data}: { data: PageData } = $props();
 </script>
 
 <section class="h-screen bg-cover relative overflow-hidden" style={`background-image: url('${placeholder}')`}>
@@ -103,8 +105,8 @@
     </div>
 </div>
 
+<NewsSection items={data.news}></NewsSection>
 <ProgramSection></ProgramSection>
-<NewsSection></NewsSection>
 <CallToActionSection></CallToActionSection>
 <style>
 

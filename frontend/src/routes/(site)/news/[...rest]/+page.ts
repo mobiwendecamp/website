@@ -1,14 +1,12 @@
 import type {PageLoad} from './$types';
 import {getLanguageFromUrl, loadPageWithSubpages} from "$lib/utils";
-import PressSidebar from './../../Sidebar.svelte';
-import Sidebar from './../Sidebar.svelte';
 import {error} from "@sveltejs/kit";
 
 export const load = (async ({params, url}) => {
     let page = await loadPageWithSubpages(
         params.rest,
         getLanguageFromUrl(url.pathname),
-        'press/releases'
+        'news'
     )
 
     if (page.meta?.published !== true) {
@@ -17,7 +15,6 @@ export const load = (async ({params, url}) => {
 
     return {
         ...page,
-        sidebar: [Sidebar, PressSidebar]
     }
 
 }) satisfies PageLoad;

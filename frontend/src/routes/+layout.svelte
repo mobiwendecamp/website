@@ -5,15 +5,15 @@
     import {ModeWatcher} from "mode-watcher";
     import MainNavigation from "$lib/components/Blocks/MainNavigation.svelte";
     import Footer from "$lib/components/Blocks/Footer.svelte";
-
-    let { children } = $props();
+    import { fade, } from 'svelte/transition'
+    let {children, data} = $props();
 </script>
 
 <ParaglideJS {i18n}>
-    <ModeWatcher />
+    <ModeWatcher/>
     <MainNavigation></MainNavigation>
-    <main class="text-foreground">
-        {@render children?.()}
-    </main>
+        <main class="text-foreground">
+            {@render children?.()}
+        </main>
     <Footer></Footer>
 </ParaglideJS>

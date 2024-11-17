@@ -2,8 +2,9 @@ import {type ClassValue, clsx} from "clsx";
 import {twMerge} from "tailwind-merge";
 import {cubicOut} from "svelte/easing";
 import type {TransitionConfig} from "svelte/transition";
-import {availableLanguageTags, languageTag} from "$lib/paraglide/runtime";
+import {availableLanguageTags, languageTag, sourceLanguageTag} from "$lib/paraglide/runtime";
 import {error} from "@sveltejs/kit";
+import * as t from "$lib/paraglide/messages";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -129,11 +130,14 @@ export async function loadPageWithSubpages(
 export function getLanguageFromUrl(pathname: string): typeof availableLanguageTags[number] {
 
     for (const language of availableLanguageTags) {
-        if (!pathname.startsWith(`/${language}/`)) {
-            continue;
+        if (pathname === `/${language}`) {
+            return language;
         }
 
-        return language;
+        if (pathname.startsWith(`/${language}/`)) {
+            return language;
+        }
+
     }
 
     return 'de';
@@ -148,25 +152,51 @@ export function findPage(path: string, language: typeof availableLanguageTags[nu
             .replace('..', '')
             .replace(/^\/|\/$/g, '')
     }
+
     let param = path.trim()
         .replace('..', '')
         .replace(/^\/|\/$/g, '')
-    let targetPath = `${param ? param + '/' : ''}${language}.md`
 
-    if (restrictTo) {
-        restrictTo += '/';
+    let targetPath = (lang: string) => {
+        let path = `${param ? param + '/' : ''}${lang}.md`
+
+        return (restrictTo ? restrictTo + '/' : '') + path
     }
-    targetPath = (restrictTo || '') + targetPath
+
 
     const paths = import.meta.glob(`$content/pages/**/**/*.md`, {eager: true})
-    const module = Object.entries(paths)
-        .find(([path]) => path.endsWith(targetPath));
+
+    let module = Object.entries(paths)
+        .find(([path]) => path.endsWith(targetPath(sourceLanguageTag)));
 
     if (!module) {
         return undefined;
     }
 
-    return module[1] as ReturnType<typeof findPage>;
+    const basePage = module[1];
+
+    if (sourceLanguageTag === language) {
+        return basePage as ReturnType<typeof findPage>;
+    }
+
+    module = Object.entries(paths)
+        .find(([path]) => path.endsWith(targetPath(language)));
+
+    if (!module) {
+        return undefined;
+    }
+    const page = module[1] as ReturnType<typeof findPage>;
+
+
+    return {
+        default: page?.default,
+        metadata: {
+            ...basePage?.metadata,
+            ...page?.metadata
+        }
+    }
+
+
 }
 
 export function formatDate(date: Date): string {
@@ -175,4 +205,87 @@ export function formatDate(date: Date): string {
         month: 'numeric',
         year: '2-digit'
     }).format(date)
+}
+
+
+export function getDynamicPages<T>(items: Record<string, Record<string, unknown>>,
+                                   options: {
+                                       offset?: number,
+                                       take?: null | number,
+                                       filter?: (post: T) => boolean
+                                   } = {}
+) {
+    const defaultOptions = {
+        offset: 0,
+        take: null,
+        filter: (post: T) => true
+    }
+
+    let {offset, take, filter} = {
+        ...defaultOptions,
+        ...options
+    }
+
+    take = take ?? Object.keys(items).length;
+
+    return Object.entries(items)
+        .slice(offset, offset + take)
+        .map(
+            ([path, file]) =>
+                ({
+                    ...file.metadata,
+                    slug: path.split('/').at(-2),
+                    date: new Date(file.metadata.date)
+                })
+        )
+        .filter((post) => post.published)
+        .filter(filter)
+        .sort((a, b) => b.date.valueOf() - a.date.valueOf());
+}
+
+export function fetchPages(rawItems: Record<string, Record<string, unknown>>, language: typeof availableLanguageTags[number]) {
+    let items: Record<string, Record<string, unknown>> = {};
+
+    Object.keys(rawItems)
+        .reduce((carry: string[], fullPath) => {
+            const dirPath: string = fullPath.slice(0, fullPath.lastIndexOf('/'));
+
+            if (carry.includes(dirPath)) {
+                return carry;
+            }
+
+            carry.push(dirPath);
+            return carry
+        }, [])
+        .forEach((dirPath: string) => {
+            let path = (lang: string) => `${dirPath}/${lang}.md`;
+            const baseItem = rawItems[path(sourceLanguageTag)]
+
+            if (!baseItem) {
+                return;
+            }
+
+            if (language === sourceLanguageTag) {
+                items[path(sourceLanguageTag)] = baseItem
+                return;
+            }
+
+            if (rawItems[path(language)]) {
+                let item = rawItems[path(language)];
+
+
+                items[path(language)] = {
+                    ...item,
+                    metadata: {
+                        ...baseItem?.metadata || {},
+                        ...item?.metadata || {},
+                    }
+                };
+                return;
+            }
+
+            items[path(language)] = baseItem
+        })
+
+    return items;
 }

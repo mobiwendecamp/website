@@ -1,22 +1,31 @@
-<div>
-    <h4 class="scroll-m-20 text-xl font-semibold tracking-tight">Jahre</h4>
-    <nav class="mt-4">
-        <ul>
-            <li class="">
-                <a class="p-2 block text-lg hover:bg-muted transition-all" href="/press/releases">
-                    2025 (dieses Jahr)
-                </a>
-            </li>
-            <li class="">
-                <a class="p-2 block text-lg hover:bg-muted transition-all" href="/press/releases?year=2023">
-                    2023
-                </a>
-            </li>
+<script lang="ts">
+    import {goto, invalidateAll} from "$app/navigation";
+    import {page} from "$app/stores";
+    import * as t from "$lib/paraglide/messages.js";
+
+    const years = [2025, 2023, 2021];
+
+    async function changeYear(year: number) {
+        $page.url.searchParams.set('year', String(year));
+        await goto(`?${$page.url.searchParams.toString()}`);
+        invalidateAll()
+    }
+
+</script>
+
+<nav class="flex flex-1 flex-col" aria-label="Sidebar">
+    <ul role="list" class="-mx-2 space-y-1">
+        {#each years as year}
             <li>
-                <a class="p-2 block text-lg hover:bg-muted transition-all" href="/press/releases?year=2021">
-                    2021
-                </a>
+                <button
+                        onclick={()=>changeYear(year)}
+                        class="group flex gap-x-3 w-full rounded-md p-2 pl-3 text-base/6
+{String(year) === $page.url.searchParams.get('year')
+                    ? 'bg-muted text-primary  font-semibold'
+                    : 'text-foreground hover:text-primary hover:bg-muted'}">
+                    {t.camp_name()} {year}
+                </button>
             </li>
-        </ul>
-    </nav>
-</div>
+        {/each}
+    </ul>
+</nav>

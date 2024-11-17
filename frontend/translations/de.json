@@ -1,6 +1,6 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "hello_world": "Hello, {name} from de!",
+  "camp_name": "Mobilwende Camp",
   "münchen": "München",
   "more_infos_soon": "Mehr Infos bald",
   "imprint": "Impressum",
@@ -38,6 +38,8 @@
 
   "donations": "Spenden",
 
+  "news": "News",
+
   "press": "Presse",
   "press_description": "Pressekontakte und mehr",
 
@@ -50,5 +52,8 @@
   "press_references": "Pressespiegel",
   "press_references_description": "Artikel über das Camp",
 
-  "glossar": "Glossar"
+  "glossar": "Glossar",
+
+  "press_release" : "Pressemitteilung",
+  "press_conference" : "Pressekonferenz"
 }

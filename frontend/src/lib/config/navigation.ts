@@ -145,9 +145,9 @@ export const mainNavigation: navigationItem[] = [
         href: '/',
     },
     {
-        id: 'donate',
-        label: t.donations,
-        href: '/',
+        id: 'news',
+        label: t.news,
+        href: '/news',
     },
     pressNavigation,
     {
@@ -191,6 +191,10 @@ export const footerNavigation: navigationItem[] = [
         id: 'glossar',
         label: t.glossar,
         href: '/glossar',
+    },    {
+        id: 'donate',
+        label: t.donations,
+        href: '/donate',
     },
 ]
 

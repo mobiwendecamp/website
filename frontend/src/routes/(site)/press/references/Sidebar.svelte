@@ -1,22 +1,26 @@
-<div>
-    <h4 class="scroll-m-20 text-xl font-semibold tracking-tight">Jahre</h4>
-    <nav class="mt-4">
-        <ul>
-            <li class="">
-                <a class="p-2 block text-lg hover:bg-muted transition-all" href="/press/references">
-                    2025 (dieses Jahr)
-                </a>
-            </li>
-            <li class="">
-                <a class="p-2 block text-lg hover:bg-muted transition-all" href="/press/references/2023">
-                    2023
-                </a>
-            </li>
+<script>
+
+    import {page} from "$app/stores";
+    import * as t from "$lib/paraglide/messages.js";
+
+    const years = [2025, 2023, 2021];
+
+
+</script>
+
+<nav class="flex flex-1 flex-col" aria-label="Sidebar">
+    <ul role="list" class="-mx-2 space-y-1">
+        {#each years as year}
             <li>
-                <a class="p-2 block text-lg hover:bg-muted transition-all" href="/press/references/2021">
-                    2021
+                <a
+                        href="/press/references{year === 2025 ?'':'/'+year}"
+                        class="group flex gap-x-3 w-full rounded-md p-2 pl-3 text-base/6
+{String(year) === $page.url.searchParams.get('year')
+                    ? 'bg-muted text-primary font-semibold'
+                    : 'text-foreground hover:text-primary hover:bg-muted'}">
+                    {t.camp_name()} {year}
                 </a>
             </li>
-        </ul>
-    </nav>
-</div>
+        {/each}
+    </ul>
+</nav>

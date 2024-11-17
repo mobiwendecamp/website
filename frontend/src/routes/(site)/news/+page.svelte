@@ -10,21 +10,20 @@
     <data.content/>
 </Typography>
 <div class="mt-10 space-y-16 border-t border-muted pt-10 sm:mt-16 sm:pt-16">
-    {#each data.releases as release}
+    {#each data.news as news}
         <article class="flex max-w-xl flex-col items-start justify-between">
 
             <div class="flex items-center gap-x-4 text-xs">
-                <time datetime="2020-03-16" class="text-muted-foreground">{formatDate(release.date)}</time>
-                <span class="relative z-10 rounded-full bg-muted px-3 py-1.5 font-medium text-muted-foreground">{release.typeLabel()}</span>
+                <time datetime="2020-03-16" class="text-muted-foreground">{formatDate(news.date)}</time>
             </div>
             <div class="group relative">
-                <a href="/press/{release.type === 'release' ? 'releases' : 'conferences' }/{release.slug}">
+                <a href="/news/{news.slug}">
                     <h3 class="mt-3 text-lg/6 font-semibold text-foreground group-hover:text-primary">
                         <span class="absolute inset-0"></span>
-                        {release.title}
+                        {news.title}
                     </h3>
                     <p class="mt-5 line-clamp-3 text-sm/6 text-muted-foreground">
-                        {release.description}
+                        {news.description}
                     </p>
                 </a>
             </div>

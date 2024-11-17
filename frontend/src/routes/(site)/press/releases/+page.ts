@@ -1,40 +1,59 @@
 import type {PageLoad} from './$types';
-import {getLanguageFromUrl, loadPage} from "$lib/utils";
+import {fetchPages, getDynamicPages, getLanguageFromUrl, loadPage} from "$lib/utils";
 import Sidebar from "./Sidebar.svelte";
+import * as t from "$lib/paraglide/messages.js";
+import {availableLanguageTags} from "$lib/paraglide/runtime";
 
 
 export const load = (async ({depends, url}) => {
-    const releases = getPressReleases();
+    const year = url.searchParams.get('year') || 2024
+    const language = getLanguageFromUrl(url.pathname);
+    const releases = getPressReleases(language, Number(year));
+
     return {
         ...await loadPage({
             page: 'press/releases',
-            language: getLanguageFromUrl(url.pathname)
+            language
         }),
         releases,
-        sidebar: Sidebar
+        sidebar: Sidebar,
+        year
     };
 
 }) satisfies PageLoad;
 
 
-function getPressReleases(offset = 0, take: null | number = null) {
-    const paths: Record<string, Record<string, unknown>> = import.meta.glob(
+function getPressReleases(language: typeof availableLanguageTags[number], year: number, offset = 0, take: null | number = null) {
+    const releases: Record<string, Record<string, unknown>> = import.meta.glob(
         '$content/pages/press/releases/*/de.md',
         {eager: true}
     );
 
-    take = take ?? Object.keys(paths).length;
+    const conferences: Record<string, Record<string, unknown>> = import.meta.glob(
+        '$content/pages/press/conferences/*/de.md',
+        {eager: true}
+    );
 
-    return Object.entries(paths)
-        .slice(offset, offset + take)
-        .map(
-            ([path, file]) =>
-                ({
-                    ...file.metadata,
-                    slug: path.split('/').at(-2),
-                    date: new Date(file.metadata.date)
-                })
-        )
-        .filter((post) => post.published)
-        .sort((a, b) => b.date.valueOf() - a.date.valueOf());
+    Object.keys(releases).forEach((path) => {
+        releases[path].metadata.typeLabel = t.press_release;
+        releases[path].metadata.type = 'release';
+    })
+
+    Object.keys(conferences).forEach((path) => {
+        conferences[path].metadata.typeLabel = t.press_conference;
+        conferences[path].metadata.type = 'conference';
+    })
+
+
+    let items: Record<string, Record<string, unknown>> = fetchPages({
+        ...releases,
+        ...conferences,
+    }, language);
+
+    return getDynamicPages(items, {
+        take,
+        offset,
+        filter: (post) =>
+            post?.date?.getFullYear() === year
+    });
 }

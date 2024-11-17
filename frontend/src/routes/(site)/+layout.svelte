@@ -1,8 +1,14 @@
 <script lang="ts">
     import type {Snippet} from "svelte";
     import {page} from '$app/stores';
+    import DonationCTA from "$lib/components/Blocks/DonationCTA.svelte";
+    import NewsletterCTA from "$lib/components/Blocks/NewsletterCTA.svelte";
+    import SocialMediaCTA from "$lib/components/Blocks/SocialMediaCTA.svelte";
 
-    let {children}: { children: Snippet } = $props();
+    import {fade,} from 'svelte/transition'
+    import type {LayoutData} from "./$types";
+
+    let {children, data}: { children: Snippet, data: LayoutData } = $props();
 
     const heros = import.meta.glob(
         '$content/assets/images/heros/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp,svg}',
@@ -17,13 +23,12 @@
     const hero = $derived(`/src/content/assets/images/heros/${$page.data.meta?.hero_image}` in heros
         ? heros[`/src/content/assets/images/heros/${$page.data.meta?.hero_image}`]
         : heros[`/src/content/assets/images/heros/default.jpg`]) as { default: string }
-
 </script>
 
 <svelte:head>
-    <title>{$page.data.meta.title}</title>
+    <title>{$page.data.meta?.title}</title>
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content={$page.data.meta.title}/>
+    <meta property="og:title" content={$page.data.meta?.title}/>
 </svelte:head>
 <div class="mx-auto max-w-7xl p-3 pt-28 lg:px-6">
 
@@ -35,7 +40,7 @@
 
         <div class="bg-background/70 backdrop-blur-sm w-full px-2 py-5 shadow-2xl">
             <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-                {$page.data.meta.title}
+                {$page.data.meta?.title}
             </h1>
             <p class="font-light text-lg lg:text-xl ">
                 {$page.data.meta?.description}
@@ -46,19 +51,39 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-6 gap-4">
         <div class="sm:col-span-4">
-            {@render children()}
+
+            {#key data.url}
+                <div class="w-full"
+                     in:fade={{ duration: 200, delay: 200 }}
+                     out:fade={{  duration: 200 }}>
+                    {@render children()}
+                </div>
+            {/key}
         </div>
 
-
         <div class="sm:col-span-2 space-y-6">
-            {#if Array.isArray($page.data?.sidebar)}
-                {#each $page.data?.sidebar as item}
-                    {@render item?.()}
-                {/each}
-            {:else}
-                {@render $page.data?.sidebar?.()}
+
+            {#if $page.data?.sidebar}
+                <div class="space-y-2"
+                     in:fade={{ duration: 200, delay: 200 }}
+                     out:fade={{  duration: 200 }}>
+
+                    {#if Array.isArray($page.data?.sidebar)}
+                        {#each $page.data?.sidebar as item}
+                            {@render item?.()}
+                        {/each}
+                    {:else}
+                        {@render $page.data?.sidebar?.()}
+                    {/if}
+                </div>
             {/if}
-            <div class="bg-red-500 w-full h-32">SPENDEN</div>
+
+            <div class="space-y-6">
+                <DonationCTA></DonationCTA>
+                <NewsletterCTA></NewsletterCTA>
+                <SocialMediaCTA></SocialMediaCTA>
+            </div>
+
         </div>
     </div>
 </div>
