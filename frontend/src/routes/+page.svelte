@@ -2,13 +2,14 @@
     import AnimatedLogo from "$lib/components/Blocks/AnimatedLogo.svelte";
     import video from '$lib/assets/videos/mobiWende_camp_background.mp4'
     import placeholder from '$lib/assets/images/placeholder-background.jpg'
-    import {Bike, Flower, Flower2, Twitter} from "lucide-svelte";
+    import {Bike, Flower2, Twitter} from "lucide-svelte";
 
     import * as m from '$lib/paraglide/messages.js';
     import {socialMedia} from "$lib/config/navigation";
     import {formatDate} from "$lib/utils";
     import {end_date, start_date} from "$lib/config/site";
     import ProgramSection from "$lib/components/Blocks/ProgramSection.svelte";
+    import {name} from "$lib/config/site";
     import NewsSection from "$lib/components/Blocks/NewsSection.svelte";
     import CallToActionSection from "$lib/components/Blocks/CallToActionSection.svelte";
     import type {PageData} from './$types';
@@ -35,7 +36,7 @@
 
             <div id="camp-logo"
                  class="opacity-0 mt-4 hover:scale-105 transition-all max-w-sm w-3/4 md:w-2/4 sm:1/4">
-                <span class="sr-only">Mobilitätswende Camp 2025</span>
+                <span class="sr-only">{name}</span>
 
                 <AnimatedLogo
                         class="w-full"
@@ -58,7 +59,7 @@
             <div id="socials" class="opacity-0 text-zinc-100 flex justify-center space-x-5 mt-2 md:mt-4">
                 {#each socialMedia as social}
                     <a href={social.href} class="text-muted-foreground hover:text-foreground"
-                       title="Telegram">
+                       title={social.label}>
                         <span class="sr-only">{social.label}</span>
                         <social.icon class="h-6 w-6"></social.icon>
                     </a>
@@ -72,15 +73,13 @@
 
 
 <section class="bg-background mx-auto max-w-7xl p-3 py-20 lg:px-6 text-2xl text-center">
-    <h2 class="text-4xl font-semibold tracking-tight  sm:text-5xl mb-3">Das Mobilitätswende Camp geht weiter!</h2>
+    <h2 class="text-4xl font-semibold tracking-tight  sm:text-5xl mb-3">{m.camp_continues()}</h2>
     <p class="text-balance">
-        Auch {start_date.getFullYear()} werden wir wieder unserm Camp für eine echte Mobilitätswende in München
-        veranstallten. Mit einem bunten Angebot aus Workshops,
-        Vorträgen, Kunst, Musik und vielen mehr.
+        {m.introduction()}
         <br>
         <span class="font-semibold inline-block mt-2">
 
-        Sei dabei! {formatDate(start_date)} – {formatDate(start_date)} in München.
+        {m.be_a_part()} {formatDate(start_date)} – {formatDate(start_date)} in {m.münchen()}.
         </span>
     </p>
 </section>

@@ -1,8 +1,8 @@
 <script lang="ts">
     import AutoScroll from "embla-carousel-auto-scroll";
-    import * as Card from "$lib/components/ui/card";
     import * as Carousel from "$lib/components/ui/carousel";
     import {Hammer, Handshake} from "lucide-svelte";
+    import * as t from '$lib/paraglide/messages.js';
 
     let guests = [
         {
@@ -41,9 +41,8 @@
 
 <section class="bg-background">
     <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <h2 class="text-base/7 font-semibold text-primary">Program</h2>
-        <p class="mt-2 max-w-lg text-pretty text-4xl font-semibold tracking-tight sm:text-5xl">Eine Menge los auf dem
-            Camp</p>
+        <h2 class="text-base/7 font-semibold text-primary">{t.program()}</h2>
+        <p class="mt-2 max-w-lg text-pretty text-4xl font-semibold tracking-tight sm:text-5xl">{t.program_description()}</p>
         <div class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
             <div class="flex p-px lg:col-span-4 w-full ring-1  bg-card rounded-lg ring-muted-foreground/15 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]">
                 <div class="overflow-hidden w-full">
@@ -78,11 +77,9 @@
                         </Carousel.Content>
                     </Carousel.Root>
                     <div class="p-10">
-                        <h3 class="text-sm/4 font-semibold text-muted-foreground">Gäste</h3>
-                        <p class="mt-2 text-lg font-medium tracking-tight">Von Autor:in bis hin zu Beamt:in</p>
-                        <p class="mt-2 max-w-lg text-sm/6 text-muted-foreground">Dieses Jahr haben wir uns große mühe
-                            gegeben ein breites Spektrum an Gästen einzuladen so das für jeden und jeder was dabei
-                            ist.</p>
+                        <h3 class="text-sm/4 font-semibold text-muted-foreground">{t.guests()}</h3>
+                        <p class="mt-2 text-lg font-medium tracking-tight">{t.program_guests_headline()}</p>
+                        <p class="mt-2 max-w-lg text-sm/6 text-muted-foreground">{t.program_guests_description()}</p>
                     </div>
                 </div>
             </div>
@@ -92,10 +89,9 @@
                         <Hammer strokeWidth="1" class="w-full h-full"></Hammer>
                     </div>
                     <div class="p-10">
-                        <h3 class="text-sm/4 font-semibold text-muted-foreground">Workshops</h3>
-                        <p class="mt-2 text-lg font-medium tracking-tight">Neues lernen und ausprobieren</p>
-                        <p class="mt-2 max-w-lg text-sm/6 text-muted-foreground">Wieder haben wir ein breites angebot an
-                            Workshops. Von Urban Gardening bis zu Heitzkostenabrechnung richtig lesen. </p>
+                        <h3 class="text-sm/4 font-semibold text-muted-foreground">{t.workshops()}</h3>
+                        <p class="mt-2 text-lg font-medium tracking-tight">{t.program_workshops_headline()}</p>
+                        <p class="mt-2 max-w-lg text-sm/6 text-muted-foreground">{t.program_workshops_description()}</p>
                     </div>
                 </div>
             </div>
@@ -105,12 +101,9 @@
                         <Handshake strokeWidth="1" class="w-full h-full"></Handshake>
                     </div>
                     <div class="p-10">
-                        <h3 class="text-sm/4 font-semibold text-muted-foreground">Mitmachen</h3>
-                        <p class="mt-2 text-lg font-medium tracking-tight">Workshops und Gäste aus der
-                            Umgebung</p>
-                        <p class="mt-2 max-w-lg text-sm/6 text-muted-foreground">Du möchtest auch einen Workshop geben
-                            oder einen Vortrag halte.
-                            Melde dich bei uns. </p>
+                        <h3 class="text-sm/4 font-semibold text-muted-foreground">{t.participate()}</h3>
+                        <p class="mt-2 text-lg font-medium tracking-tight">{t.program_participate_headline()}</p>
+                        <p class="mt-2 max-w-lg text-sm/6 text-muted-foreground">{t.program_participate_description()}</p>
                     </div>
                 </div>
             </div>
@@ -150,11 +143,9 @@
                         </Carousel.Content>
                     </Carousel.Root>
                     <div class="p-10">
-                        <h3 class="text-sm/4 font-semibold text-muted-foreground">Musik</h3>
-                        <p class="mt-2 text-lg font-medium tracking-tight ">Bands und Künstler vor Ort</p>
-                        <p class="mt-2 max-w-lg text-sm/6 text-muted-foreground">Wir freuen uns ein vielfältiges Angebot
-                            von Bands und Künstler:innen
-                            auf unserem Camp auftreten tu lassen. Hier kommen alle Genres auf ihre Kosten</p>
+                        <h3 class="text-sm/4 font-semibold text-muted-foreground">{t.music()}</h3>
+                        <p class="mt-2 text-lg font-medium tracking-tight">{t.program_music_headline()}</p>
+                        <p class="mt-2 max-w-lg text-sm/6 text-muted-foreground">{t.program_music_description()}</p>
                     </div>
                 </div>
             </div>

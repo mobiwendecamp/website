@@ -1,59 +1,61 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "camp_name": "Mobilwende Camp",
+  "camp_continues": "Das Mobilitätswende Camp geht weiter!",
+  "introduction": "Auch 2025 werden wir wieder unserm Camp für eine echte Mobilitätswende in München veranstallten. Mit einem bunten Angebot aus Workshops, Vorträgen, Kunst, Musik und vielen mehr.",
   "münchen": "München",
   "more_infos_soon": "Mehr Infos bald",
+  "be_a_part": "Sei dabei!",
   "imprint": "Impressum",
   "data_privacy": "Datenschutz",
-
   "camp": "Camp",
   "camp_description": "Alles über unser Camp",
-
   "arrvial": "Anreise",
   "arrvial_description": "Wegbeschreibungen zum Camp",
-
   "overnight": "Übernachtung",
   "overnight_description": "Infos zu Schlafmöglichkeiten",
-
   "food_and_drinks": "Essen und Trinken",
   "food_and_drinks_description": "Alle Infos zu Essen auf dem Camp",
-
   "accessibility": "Zugänglichkeit und Assistenz",
   "accessibility_description": "Alle Infos zu Barrierefreiheit",
-
   "site_plan": "Lageplan",
   "participate": "Mitmachen",
-
-
+  "participate_headline": "Du willst uns unterstützen",
+  "participate_description": "Wir freuen uns über jede unterstützung die wir bekommen können. Du kannst dich gerne bei uns melden und uns organisieren helfen oder uns einfach mit einer Spende unter die Arme greifen.",
   "program": "Programm",
-
+  "program_description": "Eine Menge los auf dem Camp",
+  "guests": "Gäste",
+  "program_guests_headline": "Von Autor:in bis hin zu Beamt:in",
+  "program_guests_description": "Dieses Jahr haben wir uns große Mühe gegeben ein breites Spektrum an Gästen einzuladen so das für jeden und jeder was dabei ist.",
+  "workshops": "Workshops",
+  "program_workshops_headline": "Neues lernen und ausprobieren",
+  "program_workshops_description": "Wieder haben wir ein breites angebot an Workshops. Von Urban Gardening bis zu Heitzkostenabrechnung richtig lesen.",
+  "program_participate_headline": "Workshops und Gäste aus der Umgebung",
+  "program_participate_description": "Du möchtest auch einen Workshop geben oder einen Vortrag halte. Melde dich bei uns.",
+  "music": "Musik",
+  "program_music_headline": "Bands und Künstler vor Ort",
+  "program_music_description": "Wir freuen uns ein vielfältiges Angebot von Bands und Künstler:innen auf unserem Camp auftreten tu lassen. Hier kommen alle Genres auf ihre Kosten",
   "awareness": "Awareness",
   "awareness_description": "Wir wollen ein „safeR“ Space sein. Hier steht was das ist und wie.",
-
   "code_of_conduct": "Code of Conduct",
   "code_of_conduct_description": "Wir wollen ein „safeR“ Space sein. Hier steht was das ist und wie.",
-
   "self_image": "Selbstverständnis",
   "self_image_description": "Wir wollen ein „safeR“ Space sein. Hier steht was das ist und wie.",
-
   "donations": "Spenden",
-
-  "news": "News",
-
+  "news": "Neuigkeiten",
+  "news_description": "Die neusten Meldungen",
   "press": "Presse",
   "press_description": "Pressekontakte und mehr",
-
   "artkit": "Artkit",
   "artkit_description": "Logos und Bildmaterial für Bericherstattung",
-
   "press_notifications": "Pressemitteilungen",
   "press_notifications_description": "Aktuelle Pressemitteilungen des Camps",
-
   "press_references": "Pressespiegel",
   "press_references_description": "Artikel über das Camp",
-
   "glossar": "Glossar",
-
-  "press_release" : "Pressemitteilung",
-  "press_conference" : "Pressekonferenz"
+  "press_release": "Pressemitteilung",
+  "press_conference": "Pressekonferenz",
+  "continue_reading": "Weiter lesen",
+  "show_all_news": "Zu allen Meldungen",
+  "table_of_contents": "Inhaltsverzeichnis"
 }

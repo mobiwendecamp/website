@@ -64,11 +64,22 @@
                             {#if item.footer}
                                 <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-popover/50">
                                     {#each item.footer as child}
-                                        <a href={child.href}
-                                           class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-popover-foreground hover:bg-popover/90">
-                                            <child.icon class="h-5 w-5 flex-none text-gray-400"></child.icon>
-                                            {child.label()}
-                                        </a>
+                                        {#if child.disabled}
+                                            <span
+                                                    title="Coming Soon"
+                                               class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-muted-foreground">
+                                                <child.icon class="h-5 w-5 flex-none text-gray-400"></child.icon>
+                                                {child.label()}
+                                            </span>
+                                            {:else}
+                                            <a href={child.href}
+
+                                               class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-popover-foreground hover:bg-popover/90">
+                                                <child.icon class="h-5 w-5 flex-none text-gray-400"></child.icon>
+                                                {child.label()}
+                                            </a>
+                                        {/if}
+
                                     {/each}
                                 </div>
                             {/if}

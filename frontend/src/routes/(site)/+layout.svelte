@@ -7,6 +7,7 @@
 
     import {fade,} from 'svelte/transition'
     import type {LayoutData} from "./$types";
+    import TOC from "$lib/components/Blocks/TOC.svelte";
 
     let {children, data}: { children: Snippet, data: LayoutData } = $props();
 
@@ -35,7 +36,7 @@
 
     <div class="h-64 overflow-hidden relative bg-cover bg-center flex items-end rounded-2xl py-6 mb-6">
         <div class="absolute top-0 w-full h-64">
-            <enhanced:img src={hero.default} class=" w-full h-full object-cover"/>
+            <enhanced:img src={hero.default} alt="Banner Image" class="w-full h-full object-cover"/>
         </div>
 
         <div class="bg-background/70 backdrop-blur-sm w-full px-2 py-5 shadow-2xl">
@@ -51,8 +52,13 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-6 gap-4">
         <div class="sm:col-span-4">
-
             {#key data.url}
+
+                {#if $page.data.meta.toc_enabled}
+                    <div class="sm:hidden block w-full">
+                        <TOC toc={$page.data.meta.toc} defaultOpen="{false}"></TOC>
+                    </div>
+                {/if}
                 <div class="w-full"
                      in:fade={{ duration: 200, delay: 200 }}
                      out:fade={{  duration: 200 }}>
@@ -62,7 +68,11 @@
         </div>
 
         <div class="sm:col-span-2 space-y-6">
-
+            {#if $page.data.meta.toc_enabled}
+                <div class="hidden sm:block">
+                    <TOC toc={$page.data.meta.toc}></TOC>
+                </div>
+            {/if}
             {#if $page.data?.sidebar}
                 <div class="space-y-2"
                      in:fade={{ duration: 200, delay: 200 }}

@@ -3,11 +3,9 @@ import {getLanguageFromUrl, loadPage} from "$lib/utils";
 
 
 export const load = (async ({depends, url}) => {
-
         return loadPage({
-            page: 'awareness',
+            page: 'privacy',
             language: getLanguageFromUrl(url.pathname)
         });
-
 }) satisfies PageLoad;
 

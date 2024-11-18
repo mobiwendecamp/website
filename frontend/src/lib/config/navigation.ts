@@ -43,6 +43,7 @@ export interface navigationItemChild {
     label: Translation,
     image?: string
     description?: Translation,
+    disabled?: boolean,
     icon?: Component | ComponentType<Icon>,
     href: string
 }
@@ -95,12 +96,13 @@ export const campNavigation: navigationItem = {
             label: t.site_plan,
             icon: Map,
             href: '/',
+            disabled: true
         },
         {
             id: 'participate',
             label: t.participate,
             icon: Handshake,
-            href: '/',
+            href: '/camp/participate',
         },
     ]
 };
@@ -142,7 +144,7 @@ export const mainNavigation: navigationItem[] = [
     {
         id: 'program',
         label: t.program,
-        href: '/',
+        href: '/program',
     },
     {
         id: 'news',
@@ -185,7 +187,7 @@ export const footerNavigation: navigationItem[] = [
     {
         id: 'data_privacy',
         label: t.data_privacy,
-        href: '/',
+        href: '/privacy',
     },
     {
         id: 'glossar',

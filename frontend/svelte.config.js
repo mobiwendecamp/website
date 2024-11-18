@@ -3,9 +3,8 @@ import adapter from '@sveltejs/adapter-auto';
 import {vitePreprocess} from '@sveltejs/vite-plugin-svelte';
 import {parse} from "@std/toml";
 import {toKebabCase} from "@std/text";
-
-
 import {visit} from 'unist-util-visit';
+import {toString} from 'mdast-util-to-string';
 
 const RE_SCRIPT_START =
     /<script(?:\s+?[a-zA-z]+(=(?:["']){0,1}[a-zA-Z0-9]+(?:["']){0,1}){0,1})*\s*?>/;
@@ -15,8 +14,9 @@ function enhancedImage() {
     const globalComponents = ['Map']
     const globalComponentDirectory = '$lib/components/markdown';
 
-    return function transformer(tree) {
+    return function transformer(tree, file) {
         let scripts = "";
+        let currentHeader;
         // Add Ids to Headlines
         visit(tree, 'heading', node => {
             const setNodeId = (node, id) => {
@@ -25,48 +25,47 @@ function enhancedImage() {
                 node.data.id = node.data.hProperties.id = id
             }
 
-            let lastChild = node.children[node.children.length - 1]
-
-            if (lastChild && lastChild.type === 'text') {
-                let string = lastChild.value.replace(/ +$/, '')
-                let matched = string.match(/ {#([^]+?)}$/)
-
-                if (matched) {
-                    let id = matched[1]
-                    if (!!id.length) {
-                        setNodeId(node, id)
-
-                        string = string.substring(0, matched.index)
-                        lastChild.value = string
-                        return
-                    }
-                }
-            }
-
-
             const getDefaultId = children => {
                 let text = children
-                    .map(child => {
-                        if (child.value && child.value !== '') {
-
-                            return child.value
-                        }
-
-                        if (child.children && child.children.length > 0) {
-                            return extractText(child.children)
-                        }
-
-                        return ''
-                    })
+                    .map(child => toString(child).trim())
                     .join(' ')
                     .trim();
 
                 return toKebabCase(text)
             }
 
+            if (!file.data.fm) {
+                file.data.fm = {}
+            }
 
-            setNodeId(node, getDefaultId(node.children))
-        })
+            if (!file.data.fm.toc) {
+                file.data.fm.toc = []
+            }
+            const id = getDefaultId(node.children);
+            if (node.depth === 2) {
+                currentHeader = {
+                    text: toString(node),
+                    id: id,
+                    depth: node.depth,
+                    children: [], // Initialize an empty array for potential h3 children
+                };
+
+                file.data.fm.toc.push(currentHeader);
+                setNodeId(node, id)
+                return;
+            }
+            if (node.depth === 3 && currentHeader) { // Check if the heading is an h3 and there is a current header
+
+                currentHeader.children.push({
+                    text: toString(node),
+                    id: id,
+                    depth: node.depth,
+                });
+
+                setNodeId(node, id)
+            }
+
+        });
 
         // Enhance Images
         visit(tree, 'image', (node) => {

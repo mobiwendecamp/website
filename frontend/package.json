@@ -24,7 +24,7 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"autoprefixer": "^10.4.20",
-		"bits-ui": "^1.0.0-next.58",
+		"bits-ui": "^1.0.0-next.59",
 		"clsx": "^2.1.1",
 		"embla-carousel-svelte": "^8.3.1",
 		"lucide-svelte": "^0.454.0",
@@ -50,6 +50,7 @@
 		"embla-carousel-auto-scroll": "^8.3.1",
 		"embla-carousel-autoplay": "^8.3.1",
 		"leaflet": "^1.9.4",
+		"mdast-util-to-string": "^4.0.0",
 		"mode-watcher": "^0.4.1",
 		"svelte-flags": "^2.0.1",
 		"unist-util-visit": "^5.0.0"
