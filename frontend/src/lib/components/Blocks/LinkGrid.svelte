@@ -7,7 +7,7 @@
 
 <div class="grid grid-cols-2 gap-4">
 
-    {#each links as link}
+    {#each links.filter((link)=> !!!link.disabled) as link}
         <a href={link.href}
            style="background-image: url('{link?.image || heroImage}')"
            class="aspect-square bg-cover block bg-center overflow-hidden group hover:scale-105 hover:shadow-2xl transition-all justify-center items-center flex-col bg-muted rounded-2xl">

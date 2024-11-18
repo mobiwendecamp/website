@@ -57,5 +57,19 @@
   "press_conference": "Pressekonferenz",
   "continue_reading": "Weiter lesen",
   "show_all_news": "Zu allen Meldungen",
-  "table_of_contents": "Inhaltsverzeichnis"
+  "table_of_contents": "Inhaltsverzeichnis",
+  "donation_widget_headline": "Hilf uns unabhängig zu bleiben",
+  "donation_widget_description": "Ein Camp zu organisieren und veranstalten kostet Geld. Hilf uns unabhängig von großen Geldgebern zu bleiben und ein Camp für alle zu.",
+  "donation_widget_read_more": "Erfahre hier mehr über Spenden",
+  "donation_widget_iban": "IBAN",
+  "donation_widget_bic": "BIC",
+  "donation_widget_account_owner": "Kontoinhaber",
+  "donation_widget_purpose": "Verwendungszweck",
+  "open_menu": "Menü öffnen",
+  "newsletter_widget_headline": "Für Newsletter anmelden",
+  "newsletter_widget_description": "Wir schicken dir Updates und news per Email",
+  "newsletter_widget_subscribe": "anmelden",
+  "follow_us_on": "Folge uns auf Social Media",
+  "youtube_load_scripts": "Lade Youtube Video. Dabei können Drittanbieter Skripte und Cookies geladen werden.",
+  "youtube_watch_on": "Auf Youtube ansehen"
 }

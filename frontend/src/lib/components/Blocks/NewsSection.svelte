@@ -2,6 +2,7 @@
 
     import {formatDate} from "$lib/utils";
     import * as t from '$lib/paraglide/messages.js';
+    import {start_date} from "$lib/config/site";
 
     const {items} = $props();
 </script>
@@ -13,7 +14,7 @@
             <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight sm:text-5xl">{t.news_description()}</p>
         </div>
         <article class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
-            <time datetime="2020-03-16" class="block text-sm/6 text-muted-foreground">{formatDate(items[0].date)}</time>
+            <time datetime={items[0].date.toISOString().split('T')[0]} class="block text-sm/6 text-muted-foreground">{formatDate(items[0].date)}</time>
             <h2 id="featured-post"
                 class="mt-4 text-pretty text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{items[0].title}</h2>
             <p class="mt-4 text-lg/8 text-muted-foreground">{items[0].description}.</p>
@@ -29,7 +30,7 @@
                 {#each items.slice(1) as item}
                     <article class="py-12">
                         <div class="group relative max-w-xl">
-                            <time datetime="2020-03-16" class="block text-sm/6 text-muted-foreground">
+                            <time datetime={item.date.toISOString().split('T')[0]} class="block text-sm/6 text-muted-foreground">
                                 {formatDate(item.date)}
                             </time>
                             <h2 class="mt-2 text-lg font-semibold text-foreground group-hover:text-muted-foreground">

@@ -13,6 +13,7 @@
     import {mainNavigation} from "$lib/config/navigation";
     import type {navigationItemChild} from "$lib/config/navigation";
     import {cn} from "$lib/utils";
+    import * as t from "$lib/paraglide/messages.js"
 
     let mobileOpen = $state(false);
 </script>
@@ -38,7 +39,7 @@
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-6" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="/" class="">
-                <span class="sr-only">Mobiwendecamp 2025 Logo</span>
+                <span class="sr-only">{t.camp_name()} Logo</span>
                 <AnimatedLogo class="h-16 text-foreground"></AnimatedLogo>
             </a>
         </div>
@@ -95,7 +96,7 @@
             <LanguageSwitch></LanguageSwitch>
             <div class="flex lg:hidden">
                 <Button onclick={()=> mobileOpen = !mobileOpen} type="button" variant="ghost" size="icon">
-                    <span class="sr-only">Open main menu</span>
+                    <span class="sr-only">{t.open_menu()}</span>
                     <Menu class="h-6 w-6"></Menu>
                 </Button>
             </div>

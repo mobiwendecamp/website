@@ -114,13 +114,13 @@ export const pressNavigation: navigationItem = {
     icon: Newspaper,
     description: t.press_description,
     children: [
-        {
+/*        {
             id: 'artkit',
             label: t.artkit,
             icon: Brush,
             description: t.artkit_description,
             href: '/',
-        },
+        },*/
         {
             id: 'press_notifications',
             label: t.press_notifications,

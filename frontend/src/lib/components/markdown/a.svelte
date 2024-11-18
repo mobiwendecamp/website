@@ -2,6 +2,7 @@
     import type {Snippet} from "svelte";
     import Youtube from "$lib/components/Atoms/Icons/Youtube.svelte";
     import {Button} from "$lib/components/ui/button";
+    import * as t from '$lib/paraglide/messages.js';
 
     const {href, children}: { href: string, children: Snippet } = $props();
 
@@ -25,14 +26,14 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         {:else}
-            <span class="block bg-muted aspect-video w-full max-w-xl flex items-center justify-center flex-col">
+            <span class="bg-muted aspect-video w-full max-w-xl mx-auto flex p-4 items-center justify-center flex-col">
                 <Youtube class="w-1/5 text-muted-foreground"/>
-                <Button onclick={loadYoutube} variant="outline">Load Youtube Video. This will load scripts and Cookies
-                    from
-                    Youtube
+
+                <Button onclick={loadYoutube} variant="outline" class="text-balance">
+                    {t.youtube_load_scripts()}
                 </Button>
 
-                <a {href} target="_blank">Watch on Youtube</a>
+                <a {href} target="_blank">{t.youtube_watch_on()}</a>
             </span>
         {/if}
     </span>

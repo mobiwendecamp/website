@@ -1,36 +1,39 @@
 <script>
+    import * as t from "$lib/paraglide/messages.js"
+    import {donation_account} from "$lib/config/site"
 </script>
 
 <div class="bg-card shadow sm:rounded-lg">
     <div class="px-4 py-5 sm:p-6">
-        <h3 class="text-base font-semibold text-foreground">Hilf uns unabhängig zu bleiben</h3>
+        <h3 class="text-base font-semibold text-foreground">{t.donation_widget_headline()}</h3>
         <div class="mt-2 max-w-xl text-sm text-muted-foreground">
-            <p>Ein Camp zu organisieren und veranstalten kostet Geld. Hilf uns unabhängig von großen Geldgebern zu
-                bleiben und ein Camp für alle zu.</p>
+            <p>{t.donation_widget_description()}</p>
             <div class="space-y-2 mt-4">
                 <div>
                     <div class="text-foreground">
-                        DE72430609671115855900
+                        {donation_account.iban}
                     </div>
-                    <div>IBAN</div>
+                    <div>{t.donation_widget_iban()}</div>
                 </div>
                 <div>
                     <div class="text-foreground">
-                        GENODEM1GLS
+                        {donation_account.bic}
                     </div>
-                    <div>BIC</div>
+                    <div>{t.donation_widget_bic()}</div>
                 </div>
                 <div>
                     <div class="text-foreground">
-                        Deutscher Förderverein globaler grüner Bewegungen e.V.
+                        {donation_account.owner}
+
                     </div>
-                    <div>Kontoinhaber</div>
+                    <div>{t.donation_widget_account_owner()}</div>
                 </div>
                 <div>
                     <div class="text-foreground">
-                        mobilitätswendecamp
+                        {donation_account.purpose}
+
                     </div>
-                    <div>Verwendungszweck</div>
+                    <div>{t.donation_widget_purpose()}</div>
                 </div>
             </div>
         </div>
