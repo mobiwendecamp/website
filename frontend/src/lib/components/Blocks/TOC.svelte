@@ -19,7 +19,6 @@
         }
     }
 </script>
-
 <div class="bg-card shadow sm:rounded-lg space-y-4">
     <div class="px-4 py-5 sm:p-6">
         <h3 class="text-lg font-semibold text-foreground">{t.table_of_contents()}</h3>

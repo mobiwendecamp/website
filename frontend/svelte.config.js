@@ -42,6 +42,7 @@ function enhancedImage() {
                 file.data.fm.toc = []
             }
             const id = getDefaultId(node.children);
+
             if (node.depth === 2) {
                 currentHeader = {
                     text: toString(node),
@@ -54,6 +55,7 @@ function enhancedImage() {
                 setNodeId(node, id)
                 return;
             }
+
             if (node.depth === 3 && currentHeader) { // Check if the heading is an h3 and there is a current header
 
                 currentHeader.children.push({
@@ -65,6 +67,7 @@ function enhancedImage() {
                 setNodeId(node, id)
             }
 
+            setNodeId(node, id)
         });
 
         // Enhance Images

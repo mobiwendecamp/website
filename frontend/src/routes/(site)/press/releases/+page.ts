@@ -6,9 +6,8 @@ import {availableLanguageTags} from "$lib/paraglide/runtime";
 
 
 export const load = (async ({depends, url}) => {
-    const year = url.searchParams.get('year') || 2024
     const language = getLanguageFromUrl(url.pathname);
-    const releases = getPressReleases(language, Number(year));
+    const releases = getPressReleases(language);
 
     return {
         ...await loadPage({
@@ -17,13 +16,12 @@ export const load = (async ({depends, url}) => {
         }),
         releases,
         sidebar: Sidebar,
-        year
     };
 
 }) satisfies PageLoad;
 
 
-function getPressReleases(language: typeof availableLanguageTags[number], year: number, offset = 0, take: null | number = null) {
+function getPressReleases(language: typeof availableLanguageTags[number], offset = 0, take: null | number = null) {
     const releases: Record<string, Record<string, unknown>> = import.meta.glob(
         '$content/pages/press/releases/*/de.md',
         {eager: true}
@@ -53,7 +51,5 @@ function getPressReleases(language: typeof availableLanguageTags[number], year: 
     return getDynamicPages(items, {
         take,
         offset,
-        filter: (post) =>
-            post?.date?.getFullYear() === year
     });
 }

@@ -7,7 +7,6 @@
 
 
 </script>
-
 <nav class="flex flex-1 flex-col" aria-label="Sidebar">
     <ul role="list" class="-mx-2 space-y-1">
         {#each years as year}
@@ -15,7 +14,7 @@
                 <a
                         href="/press/references{year === 2025 ?'':'/'+year}"
                         class="group flex gap-x-3 w-full rounded-md p-2 pl-3 text-base/6
-{String(year) === $page.url.searchParams.get('year')
+{('/press/references/' + year)  === $page.url.pathname ||($page.url.pathname === '/press/references' && year === 2025 )
                     ? 'bg-muted text-primary font-semibold'
                     : 'text-foreground hover:text-primary hover:bg-muted'}">
                     {t.camp_name()} {year}

@@ -17,7 +17,7 @@ export const load = (async ({params, url}) => {
 
     return {
         ...page,
-        sidebar: [Sidebar, PressSidebar]
+        sidebar: [PressSidebar]
     }
 
 }) satisfies PageLoad;
