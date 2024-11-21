@@ -4,15 +4,15 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "npm run copy && vite build",
+		"build": "npm run content:get && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:e2e": "playwright test",
 		"test": "npm run test:e2e && npm run test:unit -- --run",
 		"test:unit": "vitest",
-		"clean": "npx run-func ./scripts/content.js clean",
-		"copy": "npx run-func ./scripts/content.js copy"
+		"content:clean": "npx run-func ./scripts/fetch_content.js clean",
+		"content:get": "npx run-func ./scripts/fetch_content.js copy"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
