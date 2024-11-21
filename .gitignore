@@ -4,3 +4,4 @@
 /.zed
 .DS_STORE
 **/*.direnv
+rest_calls

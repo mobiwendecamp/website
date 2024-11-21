@@ -54,7 +54,7 @@
         <div class="sm:col-span-4">
             {#key data.url}
 
-                {#if $page.data.meta.toc_enabled}
+                {#if $page.data.meta?.toc_enabled}
                     <div class="sm:hidden block w-full">
                         <TOC toc={$page.data.meta.toc} defaultOpen="{false}"></TOC>
                     </div>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="sm:col-span-2 space-y-6">
-            {#if $page.data.meta.toc_enabled}
+            {#if $page.data.meta?.toc_enabled}
                 <div class="hidden sm:block">
                     <TOC toc={$page.data.meta.toc}></TOC>
                 </div>
