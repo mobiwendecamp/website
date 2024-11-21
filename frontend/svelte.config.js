@@ -134,28 +134,6 @@ const mdsvexOptions = {
     remarkPlugins: [
         enhancedImage
     ],
-    frontmatter: {
-        type: 'toml',
-        marker: '+',
-        parse(frontmatter, messages) {
-            try {
-                if (!frontmatter) {
-                    return {};
-                }
-
-                return parse(frontmatter);
-            } catch (e) {
-                messages.push(
-                    "Parsing error on line " +
-                    e.line +
-                    ", column " +
-                    e.column +
-                    ": " +
-                    e.message
-                );
-            }
-        }
-    }
 };
 
 /** @type {import('@sveltejs/kit').Config} */

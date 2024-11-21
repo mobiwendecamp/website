@@ -1,7 +1,7 @@
-+++
-title = "TOML Example" # The Title of the Page
-published = 2024-05-27 # bool or date (true, false or YYYY-mm-dd)
-+++
+---
+title: "TOML Example" # The Title of the Page
+published: 2024-05-27 # bool or date (true, false or YYYY-mm-dd)
+---
 
 
 # h1 Heading
