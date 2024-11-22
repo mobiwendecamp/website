@@ -18,16 +18,26 @@
     let mobileOpen = $state(false);
 </script>
 
-{#snippet navigationSubItem({item, noXPadding = false}: {item: navigationItemChild, noXPadding?: boolean})}
-    <div class="group relative flex gap-x-6 rounded-lg text-sm/6 hover:bg-popover transition-all py-4 {noXPadding ? '':'px-4'}">
+{#snippet navigationSubItem({item, close = false}: {item: navigationItemChild ,close?: boolean})}
+    <div class="group relative flex gap-x-6 rounded-lg text-sm/6 hover:bg-popover transition-all p-4">
         <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg transition-all bg-muted">
             <item.icon class="h-6 w-6 group-hover:text-primary transition-all"></item.icon>
         </div>
         <div class="flex-auto">
-            <a href={item.href} class="block font-semibold text-popover-foreground">
-                {item.label()}
-                <span class="absolute inset-0"></span>
-            </a>
+            {#if close}
+                <Sheet.Close>
+                    <a href={item.href} class="block font-semibold text-popover-foreground">
+                        {item.label()}
+                        <span class="absolute inset-0"></span>
+                    </a>
+                </Sheet.Close>
+            {:else}
+                <a href={item.href} class="block font-semibold text-popover-foreground">
+                    {item.label()}
+                    <span class="absolute inset-0"></span>
+                </a>
+            {/if}
+
             {#if item.description}
                 <p class="mt-1 text-muted-foreground">{item.description()}</p>
             {/if}
@@ -68,11 +78,11 @@
                                         {#if child.disabled}
                                             <span
                                                     title="Coming Soon"
-                                               class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-muted-foreground">
+                                                    class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-muted-foreground">
                                                 <child.icon class="h-5 w-5 flex-none text-gray-400"></child.icon>
                                                 {child.label()}
                                             </span>
-                                            {:else}
+                                        {:else}
                                             <a href={child.href}
 
                                                class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-popover-foreground hover:bg-popover/90">
@@ -115,7 +125,7 @@
                                 <AnimatedLogo class="h-16 text-foreground"/>
                             </a>
                             <Sheet.Close>
-                                {#snippet child({ props })}
+                                {#snippet child({props})}
                                     <Button {...props} size="icon" variant="ghost">
                                         <X/>
                                     </Button>
@@ -126,39 +136,44 @@
                         </div>
                         <div class="mt-6 flow-root">
                             <div class="">
-                                <Accordion.Root>
-                                    {#each mainNavigation as item}
-                                        {#if !item?.children}
+                                {#each mainNavigation as item}
+                                    {#if !item?.children}
+                                        <Sheet.Close class="block">
                                             <a href={item.href}
                                                class="text-base/6 font-semibold text-foreground uppercase block mt-6">{item.label()}</a>
-                                        {:else}
+                                        </Sheet.Close>
+                                    {:else}
+                                        <Accordion.Root>
                                             <Accordion.Item value={item.id}>
                                                 <Accordion.Trigger
                                                         class="flex items-center gap-x-1 text-base/6 uppercase tracking-widest font-semibold text-foreground">
                                                     {item.label()}
                                                 </Accordion.Trigger>
                                                 <Accordion.Content>
-                                                    {@render navigationSubItem({item, noXPadding: true})}
+                                                    {@render navigationSubItem({item, close: true})}
 
                                                     {#each item.children as child}
-                                                        {@render navigationSubItem({item: child, noXPadding: true})}
+                                                        {@render navigationSubItem({item: child, close: true})}
                                                     {/each}
                                                     {#if item.footer}
                                                         <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-popover/50">
                                                             {#each item.footer as child}
-                                                                <a href={child.href}
-                                                                   class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-popover-foreground hover:bg-popover/90">
-                                                                    <child.icon class="h-5 w-5 flex-none text-gray-400"></child.icon>
-                                                                    {child.label()}
-                                                                </a>
+                                                                <Sheet.Close>
+                                                                    <a href={child.href}
+                                                                       class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-popover-foreground hover:bg-popover/90">
+                                                                        <child.icon
+                                                                                class="h-5 w-5 flex-none text-gray-400"></child.icon>
+                                                                        {child.label()}
+                                                                    </a>
+                                                                </Sheet.Close>
                                                             {/each}
                                                         </div>
                                                     {/if}
                                                 </Accordion.Content>
                                             </Accordion.Item>
-                                        {/if}
-                                    {/each}
-                                </Accordion.Root>
+                                        </Accordion.Root>
+                                    {/if}
+                                {/each}
                             </div>
                         </div>
                     </div>

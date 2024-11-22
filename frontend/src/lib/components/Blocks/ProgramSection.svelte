@@ -3,38 +3,84 @@
     import * as Carousel from "$lib/components/ui/carousel";
     import {Hammer, Handshake} from "lucide-svelte";
     import * as t from '$lib/paraglide/messages.js';
+    import guest_1 from '$content/assets/images/guests/guest_1.jpg?enhanced&blur=30';
+    import guest_2 from '$content/assets/images/guests/guest_2.jpg?enhanced&blur=30';
+    import guest_3 from '$content/assets/images/guests/guest_3.jpg?enhanced&blur=30';
+    import guest_4 from '$content/assets/images/guests/guest_4.jpg?enhanced&blur=30';
+    import guest_5 from '$content/assets/images/guests/guest_5.jpg?enhanced&blur=30';
+    import guest_6 from '$content/assets/images/guests/guest_6.jpg?enhanced&blur=30';
+    import guest_7 from '$content/assets/images/guests/guest_7.jpg?enhanced&blur=30';
+
+    import act_1 from '$content/assets/images/acts/act_1.jpg?enhanced&blur=50&quality=20';
+    import act_2 from '$content/assets/images/acts/act_2.jpg?enhanced&blur=50&quality=20';
+    import act_3 from '$content/assets/images/acts/act_3.jpg?enhanced&blur=70&quality=20';
+    import act_4 from '$content/assets/images/acts/act_4.jpg?enhanced&blur=30&quality=20';
+    import act_5 from '$content/assets/images/acts/act_5.jpg?enhanced&blur=70&quality=20';
+    import act_6 from '$content/assets/images/acts/act_6.jpg?enhanced&blur=50&quality=20';
 
     let guests = [
         {
-            'name': 'Arne Semsrott',
-            'role': 'Autor / Frag den Staat',
-            'img': 'https://tincon.org/media/pages/speaker/arne-semsrott/52c759fe8f-1713354414/arne-semsrott_credit_jorg-bruggemann-700x1050.webp'
+            'name': 'Noch Geheim',
+            'role': 'Autor*in',
+            'img': guest_1
         },
         {
-            'name': 'Philipp Ruch',
-            'role': 'Autor',
-            'img': 'https://www.muenchner-kammerspiele.de/images/29742.jpg?w=2000'
+            'name': 'Nicht angekündigt',
+            'role': 'Comedian',
+            'img': guest_2
         },
         {
-            'name': 'Mai Thi Nguyen-Kim',
-            'role': 'Moderatorin / Chemikerin',
-            'img': 'https://img.sparknews.funkemedien.de/241670536/241670536_1707840213_v16_9_1200.jpeg'
+            'name': 'Na neugierig',
+            'role': 'Moderator*in',
+            'img': guest_3
         },
         {
-            'name': 'Lukas Ondreka',
-            'role': 'Podcaster / Dissens',
-            'img': 'https://pbs.twimg.com/profile_images/1453317794410516480/kf-LmuVF_400x400.jpg'
+            'name': 'Nicht entbluren :O',
+            'role': 'Podcaster*in',
+            'img': guest_4
         },
         {
-            'name': 'Natascha Strobl',
-            'role': 'Politikwissenschaftlerin',
-            'img': 'https://hateaid.org/wp-content/uploads/2023/04/Natascha-Strobl-Credit-Christopher-Glanzl-1.jpg'
+            'name': 'Du kennst die Devtools',
+            'role': 'Wissenschaftler*in',
+            'img': guest_5
         },
         {
-            'name': 'Und Mehr',
-            'role': '...',
-            'img': 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80'
+            'name': 'Musst trotzdem',
+            'role': 'Musiker*in',
+            'img': guest_6
         },
+        {
+            'name': 'Warten',
+            'role': 'Activist*in',
+            'img': guest_7
+        },
+    ];
+    let acts = [
+        {
+            'genre': 'Rap',
+            'img': act_1
+        },
+        {
+            'genre': 'Rock',
+            'img': act_2
+        },
+        {
+            'genre': 'Electro',
+            'img': act_3
+        },
+        {
+            'genre': 'Pop',
+            'img': act_4
+        },
+        {
+            'genre': 'Punk',
+            'img': act_5
+        },
+        {
+            'genre': 'Metal',
+            'img': act_6
+        },
+
     ];
 </script>
 
@@ -67,11 +113,12 @@
                             <div class="w-2"></div>
                             {#each guests as guest}
                                 <Carousel.Item
-                                        class="md:basis-1/2 lg:basis-1/3 max-w-xs max-h-full bg-muted p-4 rounded-2xl">
-                                    <img class="mx-auto rounded-full aspect-square object-cover"
-                                         src={guest.img} alt={guest.name}>
-                                    <h3 class="mt-6 text-base/7 font-semibold tracking-tight">{guest.name}</h3>
-                                    <p class="text-sm/6 text-muted-foreground0">{guest.role}</p>
+                                        class="basis-1/2 lg:basis-1/3 max-w-xs max-h-full bg-muted p-4 rounded-2xl">
+
+                                    <enhanced:img class="mx-auto rounded-full aspect-square object-cover"
+                                                  src={guest.img} alt={guest.name}/>
+                                    <h3 class="mt-6 lg:text-base/7 font-semibold tracking-tight line-clamp-2 text-sm/7 blur-sm">{guest.name}</h3>
+                                    <p class="lg:text-sm/6 text-xs/6 text-muted-foreground0 break-words">{guest.role}</p>
                                 </Carousel.Item>
                             {/each}
                         </Carousel.Content>
@@ -131,13 +178,12 @@
 
                         <Carousel.Content class="space-x-4">
                             <div class="w-2"></div>
-                            {#each guests as guest}
+                            {#each acts as act}
                                 <Carousel.Item
-                                        class="md:basis-1/2 lg:basis-1/3 max-w-xs max-h-full bg-muted p-4 rounded-2xl">
-                                    <img class="mx-auto rounded-full aspect-square object-cover"
-                                         src={guest.img} alt={guest.name}>
-                                    <h3 class="mt-6 text-base/7 font-semibold tracking-tight">{guest.name}</h3>
-                                    <p class="text-sm/6 text-muted-foreground0">{guest.role}</p>
+                                        class="bg-muted basis-1/2 lg:basis-1/3  p-4 rounded-2xl">
+                                    <enhanced:img class="mx-auto rounded-lg aspect-square object-cover"
+                                         src={act.img} alt={act.genre} />
+                                    <h3 class="mt-2 lg:text-base/7 font-semibold tracking-tight line-clamp-2 text-sm/7">{act.genre}</h3>
                                 </Carousel.Item>
                             {/each}
                         </Carousel.Content>

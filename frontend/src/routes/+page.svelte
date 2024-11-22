@@ -7,15 +7,31 @@
     import * as m from '$lib/paraglide/messages.js';
     import {socialMedia} from "$lib/config/navigation";
     import {formatDate} from "$lib/utils";
+    import Logo from "$content/assets/images/seo/logo.png?enhanced";
     import {end_date, start_date} from "$lib/config/site";
     import ProgramSection from "$lib/components/Blocks/ProgramSection.svelte";
     import {name} from "$lib/config/site";
     import NewsSection from "$lib/components/Blocks/NewsSection.svelte";
     import CallToActionSection from "$lib/components/Blocks/CallToActionSection.svelte";
     import type {PageData} from './$types';
-
+    import BikeAnimation from "$lib/components/Blocks/BikeAnimation.svelte";
+    import { page } from '$app/stores';
     const {data}: { data: PageData } = $props();
 </script>
+<svelte:head>
+    <title>{m.camp_name()} 2025</title>
+    <meta property="description" content={m.introduction()} />
+    <meta property="og:title" content="{m.camp_name()} 2025" />
+    <meta property="og:description" content={m.introduction()} />
+    <meta property="og:url" content={$page.url.toString()} />
+    <meta property="og:site_name" content="{m.camp_name()} 2025">
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content={$page.url.host+Logo.img.src} />
+    <meta property="twitter:image" content={$page.url.host+Logo.img.src} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="{m.camp_name()} 2025" />
+    <meta property="twitter:description" content={m.introduction()} />
+</svelte:head>
 
 <section class="h-screen bg-cover relative overflow-hidden" style={`background-image: url('${placeholder}')`}>
 
@@ -84,25 +100,7 @@
     </p>
 </section>
 
-<div class="border-b-4 relative border-foreground border-dashed mb-20 overflow-hidden">
-    <div id="bike" class="-ml-20">
-        <Bike class="w-auto h-16"></Bike>
-    </div>
-    <div class="grid grid-cols-8 items-center absolute w-full bottom-0">
-        <div class="col-span-2 place-items-center">
-
-            <Flower2></Flower2>
-        </div>
-        <div class="col-span-3 place-items-center">
-
-            <Flower2></Flower2>
-        </div>
-        <div class="col-span-3 place-items-center">
-
-            <Flower2></Flower2>
-        </div>
-    </div>
-</div>
+<BikeAnimation></BikeAnimation>
 
 <NewsSection items={data.news}></NewsSection>
 <ProgramSection></ProgramSection>
@@ -129,21 +127,7 @@
         animation-delay: 1.3s;
     }
 
-    #bike {
-        animation: bikeAnimation 16s linear infinite;
-    }
 
-    @keyframes bikeAnimation {
-        0% {
-            translate: 0 0;
-        }
-        50% {
-            translate: 100%;
-        }
-        100% {
-            translate: 100%;
-        }
-    }
 
     @keyframes entry-zoom {
         from {

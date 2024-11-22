@@ -72,5 +72,7 @@
   "follow_us_on": "Folge uns auf Social Media",
   "youtube_load_scripts": "Lade Youtube Video. Dabei können Drittanbieter Skripte und Cookies geladen werden.",
   "youtube_watch_on": "Auf Youtube ansehen",
-  "empty_state": "Noch nichts hier."
+  "empty_state": "Noch nichts hier.",
+  "title_404": "Seite nicht gefunden",
+  "description_404": "Sorry, die Seite konnte nicht gefunden werden."
 }
