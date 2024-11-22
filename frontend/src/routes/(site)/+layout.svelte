@@ -36,8 +36,8 @@
     <meta property="og:url" content={$page.url.toString()} />
     <meta property="og:site_name" content="{m.camp_name()} 2025">
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content={$page.url.host+Logo.img.src} />
-    <meta property="twitter:image" content={$page.url.host+Logo.img.src} />
+    <meta property="og:image" content={Logo.img.src} />
+    <meta property="twitter:image" content={Logo.img.src} />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="{$page.data?.meta?.title} - {m.camp_name()} 2025" />
     <meta property="twitter:description" content={m.introduction()} />

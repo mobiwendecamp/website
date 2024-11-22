@@ -2,7 +2,6 @@
     import AnimatedLogo from "$lib/components/Blocks/AnimatedLogo.svelte";
     import video from '$lib/assets/videos/mobiWende_camp_background.mp4'
     import placeholder from '$lib/assets/images/placeholder-background.jpg'
-    import {Bike, Flower2, Twitter} from "lucide-svelte";
 
     import * as m from '$lib/paraglide/messages.js';
     import {socialMedia} from "$lib/config/navigation";
@@ -26,8 +25,8 @@
     <meta property="og:url" content={$page.url.toString()} />
     <meta property="og:site_name" content="{m.camp_name()} 2025">
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content={$page.url.host+Logo.img.src} />
-    <meta property="twitter:image" content={$page.url.host+Logo.img.src} />
+    <meta property="og:image" content={Logo.img.src} />
+    <meta property="twitter:image" content={Logo.img.src} />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="{m.camp_name()} 2025" />
     <meta property="twitter:description" content={m.introduction()} />
