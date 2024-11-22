@@ -32,7 +32,7 @@ class TestNextcloud extends Command
         $localFiles = Storage::disk('frontend')->allFiles('src/content/pages');
 
         foreach ($localFiles as $file) {
-            $this->info('copy  ' . $file);
+            $this->info('copy  '.$file);
 
             if (str_ends_with($file, '.gitignore')) {
                 continue;
@@ -44,17 +44,16 @@ class TestNextcloud extends Command
                     Storage::disk('frontend')->get($file)
                 );
 
-            $this->line('copied  ' . $file);
+            $this->line('copied  '.$file);
 
         }
-
 
         $this->info('Uploading Assets');
 
         $localFiles = Storage::disk('frontend')->allFiles('src/content/assets');
 
         foreach ($localFiles as $file) {
-            $this->info('copy  ' . $file);
+            $this->info('copy  '.$file);
 
             if (str_ends_with($file, '.gitignore')) {
                 continue;
@@ -66,7 +65,7 @@ class TestNextcloud extends Command
                     Storage::disk('frontend')->get($file)
                 );
 
-            $this->line('copied  ' . $file);
+            $this->line('copied  '.$file);
 
         }
     }

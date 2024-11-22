@@ -43,10 +43,10 @@ return [
         ],
 
         'nextcloud' => [
-            'driver'     => 'nextcloud',
-            'baseUri'    => 'https://cloud.systemli.org',
-            'userName'   => env('NEXTCLOUD_USERNAME'),
-            'password'   => env('NEXTCLOUD_PASSWORD'),
+            'driver' => 'nextcloud',
+            'baseUri' => 'https://cloud.systemli.org',
+            'userName' => env('NEXTCLOUD_USERNAME'),
+            'password' => env('NEXTCLOUD_PASSWORD'),
         ],
 
         'public' => [
