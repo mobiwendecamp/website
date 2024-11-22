@@ -5,9 +5,27 @@
     import {ModeWatcher} from "mode-watcher";
     import MainNavigation from "$lib/components/Blocks/MainNavigation.svelte";
     import Footer from "$lib/components/Blocks/Footer.svelte";
-    import { fade, } from 'svelte/transition'
+    import * as m from "$lib/paraglide/messages";
+    import Logo from "$content/assets/images/seo/logo.png?enhanced";
     let {children, data} = $props();
+    import {page} from '$app/stores';
+
 </script>
+
+<svelte:head>
+    <title>{$page.data?.meta?.title} - {m.camp_name()} 2025</title>
+    <meta property="description" content={$page.data?.meta?.description || m.introduction()}/>
+    <meta property="og:title" content="{$page.data?.meta?.title} - {m.camp_name()} 2025"/>
+    <meta property="og:description" content={$page.data?.meta?.description || m.introduction()}/>
+    <meta property="og:url" content={'https://'+data.VERCEL_URL+ $page.url?.pathname}/>
+    <meta property="og:site_name" content="{m.camp_name()} 2025">
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content={Logo.img.src}/>
+    <meta property="twitter:image" content={Logo.img.src}/>
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:title" content="{$page.data?.meta?.title} - {m.camp_name()} 2025"/>
+    <meta property="twitter:description" content={$page.data?.meta?.description || m.introduction()}/>
+</svelte:head>
 
 <ParaglideJS {i18n}>
     <ModeWatcher/>

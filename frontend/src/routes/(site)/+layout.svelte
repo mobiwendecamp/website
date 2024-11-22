@@ -4,7 +4,6 @@
     import DonationCTA from "$lib/components/Blocks/DonationCTA.svelte";
     import NewsletterCTA from "$lib/components/Blocks/NewsletterCTA.svelte";
     import SocialMediaCTA from "$lib/components/Blocks/SocialMediaCTA.svelte";
-
     import {fade,} from 'svelte/transition'
     import type {LayoutData} from "./$types";
     import TOC from "$lib/components/Blocks/TOC.svelte";
@@ -28,20 +27,7 @@
         : heros[`/src/content/assets/images/heros/default.jpg`]) as { default: string }
 </script>
 
-<svelte:head>
-    <title>{$page.data?.meta?.title} - {m.camp_name()} 2025</title>
-    <meta property="description" content={m.introduction()} />
-    <meta property="og:title" content="{$page.data?.meta?.title} - {m.camp_name()} 2025" />
-    <meta property="og:description" content={m.introduction()} />
-    <meta property="og:url" content={$page.url.toString()} />
-    <meta property="og:site_name" content="{m.camp_name()} 2025">
-    <meta property="og:type" content="website"/>
-    <meta property="og:image" content={Logo.img.src} />
-    <meta property="twitter:image" content={Logo.img.src} />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="{$page.data?.meta?.title} - {m.camp_name()} 2025" />
-    <meta property="twitter:description" content={m.introduction()} />
-</svelte:head>
+
 
 <div class="mx-auto max-w-7xl p-3 pt-28 lg:px-6">
 
@@ -68,7 +54,7 @@
 
                 {#if $page.data.meta?.toc_enabled}
                     <div class="sm:hidden block w-full mb-4">
-                        <TOC toc={$page.data.meta.toc} defaultOpen="{false}"></TOC>
+                        <TOC toc={$page.data.meta.toc} defaultOpen={false}></TOC>
                     </div>
                 {/if}
                 <div class="w-full"
