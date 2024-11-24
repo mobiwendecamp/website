@@ -1,7 +1,9 @@
 import {createClient} from "webdav";
 import path from "node:path";
 import fs from 'node:fs/promises';
+import * as toml from "@std/toml";
 
+const TRANSLATION_DIR = '/Collectives/noIAA Website/data/translations/'
 const DIRS_TO_COPY = [
     {from: '/Collectives/noIAA Website/content/', to: './src/content/pages/'},
     {from: '/Collectives/noIAA Website/assets/', to: './src/content/assets/'}
@@ -23,6 +25,10 @@ async function copy() {
         username: env.USERNAME,
         password: env.PASSWORD
     });
+
+    console.log('Sync Translations...')
+    await syncTranslations(client);
+    console.log('Translation Synced.')
 
     DIRS_TO_COPY.forEach(({from, to}) => {
         copyFrom(from, to, client);
@@ -46,6 +52,33 @@ async function copyFrom(from, to, client) {
 
     console.log(`Copy from "${from}" to "${to}" done.`);
 }
+
+async function syncTranslations(client) {
+    const languages = ['de', 'en'];
+    for (const language of languages) {
+        const localPath = path.resolve('translations/' + language + '.json');
+        const localJsonString = await fs.readFile(localPath);
+        const localTranslations = JSON.parse(localJsonString.toString());
+
+        const remotePath = TRANSLATION_DIR + language + '.md';
+
+        let rawContent = (await client.getFileContents(remotePath));
+        const tomlString = rawContent.toString().split('```toml')[1]?.replace('```', '')
+        const remoteTranslations = toml.parse(tomlString);
+
+        Object.keys(localTranslations).forEach((key) => {
+            if (!(key in remoteTranslations)) {
+                return;
+            }
+
+            localTranslations[key] = remoteTranslations[key];
+        })
+
+        const syncedYamlString = toml.stringify(localTranslations);
+        await client.putFileContents(remotePath, '```toml\n' + syncedYamlString + '\n```');
+        await fs.writeFile(localPath, JSON.stringify(localTranslations, 0, 2));
+    }
+};
 
 async function clean() {
     DIRS_TO_COPY.forEach(({to}) => {

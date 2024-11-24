@@ -72,8 +72,8 @@
 </section>
 
 
-<section class="bg-background mx-auto max-w-7xl p-3 py-20 lg:px-6 text-2xl text-center">
-    <h2 class="text-4xl font-semibold tracking-tight  sm:text-5xl mb-3">{m.camp_continues()}</h2>
+<section class="mx-auto max-w-7xl p-3 py-20 lg:px-6 text-2xl text-center">
+    <h2 class="text-4xl  font-semibold tracking-tight  sm:text-5xl mb-3">{m.camp_continues()}</h2>
     <p class="text-balance">
         {m.introduction()}
         <br>

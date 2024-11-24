@@ -2,9 +2,9 @@
     import * as t from '$lib/paraglide/messages.js';
 
 </script>
-<section class="bg-background">
+<section class="">
     <div class="mx-auto max-w-7xl 8">
-        <div class="relative isolate overflow-hidden bg-background px-6 py-24 text-center sm:px-16">
+        <div class="relative isolate overflow-hidden  px-6 py-24 text-center sm:px-16">
             <h2 class="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">{t.participate_headline()}</h2>
             <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-muted-foreground">
                 {t.participate_description()}

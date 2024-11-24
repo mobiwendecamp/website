@@ -85,7 +85,7 @@
 </script>
 
 
-<section class="bg-background">
+<section class="">
     <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <h2 class="text-base/7 font-semibold text-primary">{t.program()}</h2>
         <p class="mt-2 max-w-lg text-pretty text-4xl font-semibold tracking-tight sm:text-5xl">{t.program_description()}</p>

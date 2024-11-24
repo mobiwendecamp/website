@@ -7,7 +7,7 @@
     const {items} = $props();
 </script>
 
-<section class="bg-background py-24 sm:py-32">
+<section class=" py-24 sm:py-32">
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 px-6 sm:gap-y-16 lg:grid-cols-2 lg:px-8">
         <div class="lg:col-span-2 w-full flex lg:max-w-lg flex-col items-center">
             <h2 class="text-base/7 font-semibold text-primary">{t.news()}</h2>

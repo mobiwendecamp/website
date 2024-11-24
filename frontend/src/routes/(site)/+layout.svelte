@@ -11,7 +11,7 @@
     import Logo from "$content/assets/images/seo/logo.png?enhanced";
 
     let {children, data}: { children: Snippet, data: LayoutData } = $props();
-
+    let duration = 200;
     const heros = import.meta.glob(
         '$content/assets/images/heros/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp,svg}',
         {
@@ -28,22 +28,35 @@
 </script>
 
 
-
 <div class="mx-auto max-w-7xl p-3 pt-28 lg:px-6">
 
 
     <div class="h-64 overflow-hidden relative bg-cover bg-center flex items-end rounded-2xl py-6 mb-6">
-        <div class="absolute top-0 w-full h-64">
-            <enhanced:img src={hero.default} alt="Banner Image" class="w-full h-full object-cover"/>
-        </div>
+        {#key hero.default}
+            <div in:fade={{ duration, delay: duration / 2 }}
+                 out:fade={{  duration }}
+                 class="absolute top-0 w-full h-64">
+                <enhanced:img
+                        src={hero.default}
+                        alt="Banner Image"
+                        class="w-full h-full object-cover"/>
+            </div>
+        {/key}
+        <div class="relative w-full">
+            {#key data.url}
+            <div in:fade={{ duration: duration + 50, delay: duration + 50  }}
+                 out:fade={{  duration: duration + 50}}
+                    class="absolute w-full bottom-0 bg-background/70 backdrop-blur-sm left-0 right-0 px-2 py-5 shadow-2xl">
 
-        <div class="bg-background/70 backdrop-blur-sm w-full px-2 py-5 shadow-2xl">
-            <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-                {$page.data.meta?.title}
-            </h1>
-            <p class="font-light text-lg lg:text-xl ">
-                {$page.data.meta?.description}
-            </p>
+                <h1 class="scroll-m-20 text-4xl font-extrabold block  break-words tracking-tight lg:text-5xl">
+                    {$page.data.meta?.title}
+                </h1>
+                <p class="font-light text-lg lg:text-xl block break-words">
+                    {$page.data.meta?.description}
+                </p>
+            </div>
+            {/key}
+
         </div>
     </div>
 
@@ -58,8 +71,8 @@
                     </div>
                 {/if}
                 <div class="w-full"
-                     in:fade={{ duration: 200, delay: 200 }}
-                     out:fade={{  duration: 200 }}>
+                     in:fade={{ duration, delay }}
+                     out:fade={{  duration }}>
                     {@render children()}
                 </div>
             {/key}

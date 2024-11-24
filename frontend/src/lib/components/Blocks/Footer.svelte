@@ -10,7 +10,7 @@
         <div class="flex sm:justify-between gap-8  flex-wrap">
             {#each parentItems as item}
                 <div class="min-w-36">
-                    <h3 class="text-sm/6 font-semibold">{item.label()}</h3>
+                    <h3 class="text-sm/6 font-semibold"><a href={item.href}>{item.label()}</a></h3>
                     <ul role="list" class="mt-6 space-y-4">
                         {#each (item.children || []) as child}
                             <li>

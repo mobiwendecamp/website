@@ -12,7 +12,7 @@ import {
     Handshake, Twitter,
     HeartHandshake,
     ScrollText,
-    LifeBuoy,
+    LifeBuoy, BookOpen,
 } from "lucide-svelte";
 import type {Icon} from "lucide-svelte";
 import type {Component, ComponentType} from "svelte";
@@ -63,7 +63,6 @@ export const campNavigation: navigationItem = {
             description: t.camp_description,
             href: '/camp/arrival',
             image: hero2Image,
-
         },
         {
             id: 'overnight',
@@ -99,10 +98,11 @@ export const campNavigation: navigationItem = {
             disabled: true
         },
         {
-            id: 'participate',
-            label: t.participate,
-            icon: Handshake,
-            href: '/camp/participate',
+            id: 'self_image',
+            label: t.self_image,
+            icon: ScrollText,
+            description: t.self_image_description,
+            href: '/self-image',
         },
     ]
 };
@@ -114,13 +114,13 @@ export const pressNavigation: navigationItem = {
     icon: Newspaper,
     description: t.press_description,
     children: [
-/*        {
-            id: 'artkit',
-            label: t.artkit,
-            icon: Brush,
-            description: t.artkit_description,
-            href: '/',
-        },*/
+        /*        {
+                    id: 'artkit',
+                    label: t.artkit,
+                    icon: Brush,
+                    description: t.artkit_description,
+                    href: '/',
+                },*/
         {
             id: 'press_notifications',
             label: t.press_notifications,
@@ -153,12 +153,19 @@ export const mainNavigation: navigationItem[] = [
     },
     pressNavigation,
     {
-        id: 'awareness',
-        label: t.awareness,
-        href: '/awareness',
-        icon: LifeBuoy,
-        description: t.awareness_description,
+        id: 'mitmachen',
+        label: t.participate,
+        href: '/camp/participate',
+        icon: Handshake,
+        description: t.participate_description,
         children: [
+            {
+                id: 'awareness',
+                label: t.awareness,
+                href: '/awareness',
+                icon: LifeBuoy,
+                description: t.awareness_description,
+            },
             {
                 id: 'code_of_conduct',
                 label: t.code_of_conduct,
@@ -173,6 +180,13 @@ export const mainNavigation: navigationItem[] = [
                 description: t.self_image_description,
                 href: '/self-image',
             },
+            {
+                id: 'glossar',
+                label: t.glossar,
+                href: '/glossar',
+                description: t.glossar_description,
+                icon: BookOpen,
+            }
         ]
     },
 ]
@@ -190,10 +204,6 @@ export const footerNavigation: navigationItem[] = [
         href: '/privacy',
     },
     {
-        id: 'glossar',
-        label: t.glossar,
-        href: '/glossar',
-    },    {
         id: 'donate',
         label: t.donations,
         href: '/donate',

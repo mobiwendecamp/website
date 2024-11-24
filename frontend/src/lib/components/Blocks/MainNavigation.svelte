@@ -12,7 +12,6 @@
     import {Button} from "$lib/components/ui/button";
     import {mainNavigation} from "$lib/config/navigation";
     import type {navigationItemChild} from "$lib/config/navigation";
-    import {cn} from "$lib/utils";
     import * as t from "$lib/paraglide/messages.js"
 
     let mobileOpen = $state(false);
@@ -39,7 +38,7 @@
             {/if}
 
             {#if item.description}
-                <p class="mt-1 text-muted-foreground">{item.description()}</p>
+                <p class="mt-1 text-muted-foreground line-clamp-2">{item.description()}</p>
             {/if}
         </div>
     </div>
@@ -140,11 +139,11 @@
                                     {#if !item?.children}
                                         <Sheet.Close class="block">
                                             <a href={item.href}
-                                               class="text-base/6 font-semibold text-foreground uppercase block mt-6">{item.label()}</a>
+                                               class="text-base/6 font-semibold text-foreground uppercase block py-4">{item.label()}</a>
                                         </Sheet.Close>
                                     {:else}
-                                        <Accordion.Root>
-                                            <Accordion.Item value={item.id}>
+                                        <Accordion.Root class="">
+                                            <Accordion.Item value={item.id} class="border-0">
                                                 <Accordion.Trigger
                                                         class="flex items-center gap-x-1 text-base/6 uppercase tracking-widest font-semibold text-foreground">
                                                     {item.label()}

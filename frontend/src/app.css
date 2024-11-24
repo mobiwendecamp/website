@@ -53,6 +53,13 @@
 
     body {
         @apply bg-background text-foreground;
+        background-image: url("$lib/assets/images/background-pattern-light.svg");
+
     }
+
+    .dark body {
+        background-image: url("$lib/assets/images/background-pattern-dark.svg");
+    }
+
 }
 
