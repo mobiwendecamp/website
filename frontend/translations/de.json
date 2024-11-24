@@ -68,6 +68,7 @@
   "donation_widget_purpose": "Verwendungszweck",
   "donation_via_iban": "Per Überweisung",
   "donation_via_betterplace": "Über Betterplace",
+  "donation_via_betterplace_href": "https://www.betterplace.org/de/projects/125299",
   "open_menu": "Menü öffnen",
   "newsletter_widget_headline": "Für Newsletter anmelden",
   "newsletter_widget_description": "Wir schicken dir Updates und news per Email",
