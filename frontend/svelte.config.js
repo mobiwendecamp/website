@@ -1,7 +1,6 @@
 import {mdsvex} from "mdsvex";
 import adapter from '@sveltejs/adapter-auto';
 import {vitePreprocess} from '@sveltejs/vite-plugin-svelte';
-import {parse} from "@std/toml";
 import {toKebabCase} from "@std/text";
 import {visit} from 'unist-util-visit';
 import {toString} from 'mdast-util-to-string';
@@ -11,7 +10,7 @@ const RE_SCRIPT_START =
 const RE_SRC = /src\s*=\s*"(.+?)"/;
 
 function enhancedImage() {
-    const globalComponents = ['Map']
+    const globalComponents = ['Map', 'Marker']
     const globalComponentDirectory = '$lib/components/markdown';
 
     return function transformer(tree, file) {

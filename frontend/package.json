@@ -49,12 +49,15 @@
 		"@std/text": "npm:@jsr/std__text@^1.0.8",
 		"@std/toml": "npm:@jsr/std__toml@^1.0.1",
 		"@std/yaml": "npm:@jsr/std__yaml@^1.0.5",
+		"@types/geojson": "^7946.0.14",
+		"@types/leaflet": "^1.9.15",
 		"embla-carousel-auto-scroll": "^8.3.1",
 		"embla-carousel-autoplay": "^8.3.1",
 		"leaflet": "^1.9.4",
 		"mdast-util-to-string": "^4.0.0",
 		"mode-watcher": "^0.4.1",
 		"svelte-flags": "^2.0.1",
+		"svelte-leafletjs": "^2.0.0",
 		"unist-util-visit": "^5.0.0"
 	}
 }
