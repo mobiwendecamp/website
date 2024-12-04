@@ -16,15 +16,21 @@ class FrontendDeployCommand extends Command
     public function handle(): void
     {
         $storage = Storage::disk('nextcloud');
+        $this->info('Fetching all files:');
 
         $files = [
             ...$storage->allFiles($this->getPagesPath()),
             ...$storage->allFiles($this->getAssetsPath()),
+            ...$storage->allFiles($this->getDataPath()),
         ];
 
-        $allFilesString = collect($files)
-            ->map(fn (string $file) => $file.':'.$storage->lastModified($file))
-            ->join(',');
+        $this->info('Checking all files lastModified:');
+
+        $allFilesString = [];
+        $this->withProgressBar($files, function (string $file) use (&$allFilesString, $storage) {
+            $allFilesString[] = $file.':'.$storage->lastModified($file);
+        });
+        $allFilesString = implode(',', $allFilesString);
 
         $hash = md5($allFilesString);
 
@@ -73,5 +79,10 @@ class FrontendDeployCommand extends Command
     public function getAssetsPath()
     {
         return config('frontend.content.remote_base_path').config('frontend.content.remote_assets_path');
+    }
+
+    public function getDataPath()
+    {
+        return config('frontend.content.remote_base_path').config('frontend.content.remote_data_path');
     }
 }
