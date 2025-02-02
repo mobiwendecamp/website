@@ -24,8 +24,8 @@ class FrontendDeployCommand extends Command
     {
         $storage = Storage::disk('nextcloud');
         $this->info('Fetching all files:');
+        Storage::createDirectory('website_content');
         $websiteContentPrefix = 'website_content/'.now()->format('y-m-d-H-i');
-
         $files = [
             ...$this->allFiles($storage, $this->getPagesPath()),
             ...$this->allFiles($storage, $this->getAssetsPath()),
