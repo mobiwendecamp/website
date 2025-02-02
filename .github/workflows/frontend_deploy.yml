@@ -24,6 +24,8 @@ jobs:
           echo 'NEXTCLOUD_PASSWORD=${{ secrets.NEXTCLOUD_PASSWORD }}' >>.env
           echo 'NEXTCLOUD_PATH=${{ secrets.NEXTCLOUD_PATH }}' >> .env
           echo 'NEXTCLOUD_BASE_URL= ${{ secrets.NEXTCLOUD_BASE_URL }}' >> .env
+          echo 'SCRIPT_BACKEND_WEBSITE_CONTENT= ${{ secrets.SCRIPT_BACKEND_WEBSITE_CONTENT }}' >> .env
+          echo 'PUBLIC_BACKEND_WEBSITE_NEWSLETTER_SIGNUP= ${{ secrets.PUBLIC_BACKEND_WEBSITE_NEWSLETTER_SIGNUP }}' >> .env
       - run: npm install
       - name: vercel-link
         run: |
