@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {footerNavigation,socialMedia, type navigationItem} from "$lib/config/navigation";
+    import {footerNavigation, socialMedia, type navigationItem} from "$lib/config/navigation";
 
     const parentItems = $derived(footerNavigation.filter((item: navigationItem) => !!item.children))
     const singleItems = $derived(footerNavigation.filter((item: navigationItem) => !!!item.children))
@@ -13,16 +13,20 @@
                     <h3 class="text-sm/6 font-semibold"><a href={item.href}>{item.label()}</a></h3>
                     <ul role="list" class="mt-6 space-y-4">
                         {#each (item.children || []) as child}
-                            <li>
-                                <a href={child.href}
-                                   class="text-sm/6 text-muted-foreground hover:text-foreground">{child.label()}</a>
-                            </li>
+                            {#if !child.disabled}
+                                <li>
+                                    <a href={child.href}
+                                       class="text-sm/6 text-muted-foreground hover:text-foreground">{child.label()}</a>
+                                </li>
+                            {/if}
                         {/each}
                         {#each (item.footer || []) as child}
-                            <li>
-                                <a href={child.href}
-                                   class="text-sm/6 text-muted-foreground hover:text-foreground">{child.label()}</a>
-                            </li>
+                            {#if !child.disabled}
+                                <li>
+                                    <a href={child.href}
+                                       class="text-sm/6 text-muted-foreground hover:text-foreground">{child.label()}</a>
+                                </li>
+                            {/if}
                         {/each}
                     </ul>
                 </div>
@@ -30,10 +34,10 @@
             <div class="min-w-36">
                 <ul role="list" class="space-y-4">
                     {#each singleItems as item}
-                        <li>
-                            <a href={item.href}
-                               class="text-sm/6 text-muted-foreground hover:text-foreground">{item.label()}</a>
-                        </li>
+                            <li>
+                                <a href={item.href}
+                                   class="text-sm/6 text-muted-foreground hover:text-foreground">{item.label()}</a>
+                            </li>
                     {/each}
                 </ul>
             </div>
@@ -46,7 +50,7 @@
                         <social.icon class="h-6 w-6">
                         </social.icon>
                     </a>
-                    {/each}
+                {/each}
 
             </div>
         </div>

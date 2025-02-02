@@ -3,7 +3,7 @@
     import * as t from '$lib/paraglide/messages.js';
 
 </script>
-<div class="bg-card shadow sm:rounded-lg">
+<div class="bg-card shadow sm:rounded-lg h-full">
     <div class="px-4 py-5 sm:p-6">
         <h3 class="text-base font-semibold text-foreground">{t.follow_us_on()}</h3>
 

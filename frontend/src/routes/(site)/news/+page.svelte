@@ -9,7 +9,7 @@
 <Typography>
     <data.content/>
 </Typography>
-<div class="mt-10 space-y-16 border-t border-muted pt-10 sm:mt-16 sm:pt-16">
+<div class="space-y-16 border-t border-muted">
     {#each data.news as news}
         <article class="flex max-w-xl flex-col items-start justify-between">
 

@@ -48,8 +48,8 @@
         <div class="mt-2 max-w-xl text-sm text-muted-foreground">
             <p>{t.newsletter_widget_description()}</p>
         </div>
-        <form onsubmit={addEmail} class="mt-4 flex w-full max-w-sm items-center space-x-2">
-            <Input bind:value={email} type="email" placeholder="email"/>
+        <form onsubmit={addEmail} class="mt-4 flex w-full  items-center space-x-2">
+            <Input bind:value={email} type="email" placeholder="E-Mail"/>
             <Button type="submit">{t.newsletter_widget_subscribe()}</Button>
         </form>
         {#if errors}

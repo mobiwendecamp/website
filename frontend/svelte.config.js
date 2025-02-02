@@ -10,7 +10,7 @@ const RE_SCRIPT_START =
 const RE_SRC = /src\s*=\s*"(.+?)"/;
 
 function enhancedImage() {
-    const globalComponents = ['Map', 'Marker']
+    const globalComponents = ['Map', 'Marker', 'NewsletterSignup', 'SocialMedia', 'Columns']
     const globalComponentDirectory = '$lib/components/markdown';
 
     return function transformer(tree, file) {

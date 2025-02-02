@@ -62,7 +62,7 @@ export const campNavigation: navigationItem = {
             id: 'arrival',
             label: t.arrvial,
             icon: MapPinned,
-            description: t.camp_description,
+            description: t.arrvial_description,
             href: '/camp/arrival',
             image: hero2Image,
         },
