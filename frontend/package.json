@@ -12,14 +12,13 @@
 		"test:e2e": "playwright test",
 		"test": "npm run test:e2e && npm run test:unit -- --run",
 		"test:unit": "vitest",
-		"content:clean": "npx run-func ./scripts/fetch_content.js clean",
-		"content:get": "npx run-func ./scripts/fetch_content.js copy"
+		"content:get": "npx run-func ./scripts/fetch_content_v2.js copy"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/enhanced-img": "^0.4.1",
-		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/kit": "^2.16.1",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/forms": "^0.5.9",
@@ -56,6 +55,8 @@
 		"leaflet": "^1.9.4",
 		"mdast-util-to-string": "^4.0.0",
 		"mode-watcher": "^0.4.1",
+		"node-stream-zip": "^1.15.0",
+		"request": "^2.88.2",
 		"svelte-flags": "^2.0.1",
 		"svelte-leafletjs": "^2.0.0",
 		"unist-util-visit": "^5.0.0"

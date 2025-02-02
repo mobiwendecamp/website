@@ -9,16 +9,18 @@ import {
     Tent,
     Utensils,
     Map,
-    Handshake, Twitter,
+    Handshake,
     HeartHandshake,
     ScrollText,
-    LifeBuoy, BookOpen,
+    LifeBuoy,
+    BookOpen,
 } from "lucide-svelte";
 import type {Icon} from "lucide-svelte";
 import type {Component, ComponentType} from "svelte";
 import * as t from '$lib/paraglide/messages.js';
 import type {Translation} from "$lib/i18n";
 import InstagramIcon from "$lib/components/Atoms/Icons/InstagramIcon.svelte";
+import BlueSkyIcon from "$lib/components/Atoms/Icons/BlueSky.svelte";
 import TelegramIcon from "$lib/components/Atoms/Icons/TelegramIcon.svelte";
 import MastodonIcon from "$lib/components/Atoms/Icons/MastodonIcon.svelte";
 import heroImage from '$lib/assets/images/heros/hero_1.jpg';
@@ -226,10 +228,10 @@ export const socialMedia = [
         href: 'https://www.instagram.com/mobilitatswendecamp/',
     },
     {
-        id: 'twitter',
-        icon: Twitter,
-        label: 'Twitter',
-        href: 'https://twitter.com/Mobilittswende1',
+        id: 'Bluesky',
+        icon: BlueSkyIcon,
+        label: 'Bluesky',
+        href: 'https://bsky.app/',
     },
     {
         id: 'mastodon',
