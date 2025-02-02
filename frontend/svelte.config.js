@@ -101,8 +101,13 @@ function enhancedImage() {
 
             usedComponents.forEach((componentName) => {
                 const importStatement = `import ${componentName} from '${globalComponentDirectory}/${componentName}.svelte';\n`;
+                if (scripts.includes(importStatement)) {
+                    return;
+                }
                 scripts += `${importStatement}`
             })
+
+
         });
 
         let is_script = false;
