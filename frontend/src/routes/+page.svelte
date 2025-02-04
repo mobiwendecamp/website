@@ -79,7 +79,7 @@
         <br>
         <span class="font-semibold inline-block mt-2">
 
-        {m.be_a_part()} {formatDate(start_date)} – {formatDate(start_date)} in {m.münchen()}.
+        {m.be_a_part()} {formatDate(start_date)} – {formatDate(end_date)} in {m.münchen()}.
         </span>
     </p>
 </section>
