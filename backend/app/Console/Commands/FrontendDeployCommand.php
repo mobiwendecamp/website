@@ -101,6 +101,7 @@ class FrontendDeployCommand extends Command
             ->post('https://api.vercel.com/v13/deployments', [
                 'name' => config('frontend.vercel.project_name'),
                 'deploymentId' => $deployment['uid'],
+                'target' => 'production'
             ]);
 
         if ($response->status() !== 200) {
