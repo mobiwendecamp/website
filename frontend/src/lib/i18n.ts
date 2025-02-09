@@ -5,8 +5,7 @@ export const i18n = createI18n(runtime,{
         "/imprint" : {
             en: "/imprint",
             de: "/impressum",
-            dgs: "/impressum",
         },
     }
 });
-export type Translation = (params?: {}, options?: { languageTag?: "de" | "en" | "dgs" }) => string
+export type Translation = (params?: {}, options?: { languageTag?: "de" | "en"}) => string

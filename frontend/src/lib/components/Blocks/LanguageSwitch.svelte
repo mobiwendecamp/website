@@ -27,10 +27,10 @@
             label: 'English',
             icon: Gb,
         },
-        dgs: {
+   /*     dgs: {
             label: 'Gebärdensprache DGS',
             icon: DgsIcon,
-        }
+        }*/
     }
 </script>
 <Popover.Root>
