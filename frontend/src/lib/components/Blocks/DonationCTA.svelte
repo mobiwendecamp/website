@@ -52,7 +52,7 @@
         <div class="mt-3 text-sm/6 flex flex-col">
 
             <a href="/donate" class="font-semibold text-primary hover:underline">
-                Erfahre hier mehr über Spenden
+                {t.more_about_donations()}
                 <span aria-hidden="true"> &rarr;</span>
             </a>
         </div>

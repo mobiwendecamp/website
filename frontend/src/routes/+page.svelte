@@ -14,8 +14,10 @@
     import CallToActionSection from "$lib/components/Blocks/CallToActionSection.svelte";
     import type {PageData} from './$types';
     import BikeAnimation from "$lib/components/Blocks/BikeAnimation.svelte";
+
     const {data}: { data: PageData } = $props();
 </script>
+
 
 <section class="h-screen bg-cover relative overflow-hidden" style={`background-image: url('${placeholder}')`}>
 
@@ -110,7 +112,6 @@
         animation: entry-zoom 2s ease forwards;
         animation-delay: 1.3s;
     }
-
 
 
     @keyframes entry-zoom {
