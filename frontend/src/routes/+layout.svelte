@@ -12,6 +12,7 @@
     import {page} from '$app/state';
     import {formatDate} from "$lib/utils";
     import {end_date, start_date} from "$lib/config/site";
+    import Banner from "$lib/components/Blocks/Banner.svelte";
 
 </script>
 <svelte:head>
@@ -35,6 +36,7 @@
 </svelte:head>
 <ParaglideJS {i18n}>
     <ModeWatcher/>
+    <Banner></Banner>
     <MainNavigation></MainNavigation>
     <main class="text-foreground">
         {@render children?.()}
