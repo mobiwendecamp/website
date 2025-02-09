@@ -7,8 +7,8 @@ on:
       - main
 
 env:
-  PRODUCTION_BRANCH: placeholder
-  PREVIEW_BRANCH: main
+  PRODUCTION_BRANCH: main
+  PREVIEW_BRANCH: placeholder
 
 jobs:
   deploy:
