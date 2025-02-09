@@ -231,7 +231,7 @@ export const socialMedia = [
         id: 'Bluesky',
         icon: BlueSkyIcon,
         label: 'Bluesky',
-        href: 'https://bsky.app/',
+        href: 'https://bsky.app/profile/mobiwendecamp.bsky.social',
     },
     {
         id: 'mastodon',
