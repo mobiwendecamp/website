@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Actions\Login;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use App\Filament\Actions\Register;
 use App\Filament\Widgets\InviteWidget;
 use Filament\Http\Middleware\Authenticate;
@@ -57,6 +58,9 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+            ])
+            ->plugins([
+                FilamentShieldPlugin::make(),
             ])
             ->authMiddleware([
                 Authenticate::class,

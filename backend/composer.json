@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.3",
         "ext-zip": "*",
+        "bezhansalleh/filament-shield": "^3.3",
         "filament/filament": "^3.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
