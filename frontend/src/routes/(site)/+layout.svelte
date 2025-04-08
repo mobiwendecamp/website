@@ -62,7 +62,7 @@
 
 
     <div class="grid grid-cols-1 sm:grid-cols-6 gap-4">
-        <div class="sm:col-span-4">
+        <div class="sm:col-span-4 h-full">
             {#key data.url}
 
                 {#if $page.data.meta?.toc_enabled}
@@ -70,7 +70,7 @@
                         <TOC toc={$page.data.meta.toc} defaultOpen={false}></TOC>
                     </div>
                 {/if}
-                <div class="w-full"
+                <div class="w-full h-full"
                      in:fade={{ duration, delay }}
                      out:fade={{  duration }}>
                     {@render children()}

@@ -8,7 +8,7 @@
 
 <div {...rest}
      class={cn(
-         "prose max-w-none prose-a:text-primary break-words prose-headings:text-foreground prose-strong:text-foreground prose-blockquote:text-foreground prose-code:bg-muted prose-code:text-foreground",
+         "prose max-w-none h-full prose-a:text-primary break-words prose-headings:text-foreground prose-strong:text-foreground prose-blockquote:text-foreground prose-code:bg-muted prose-code:text-foreground",
          className
          )}
 >
