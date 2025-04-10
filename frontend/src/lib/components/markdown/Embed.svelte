@@ -2,4 +2,4 @@
     let {src} = $props()
 </script>
 
-<iframe class="border shadow w-full min-h-[35rem]" {src}/>
+<iframe class="border shadow w-full min-h-[35rem] sm:rounded-lg" {src}/>
