@@ -6,7 +6,7 @@
     const {data}: { data: PageData } = $props();
 </script>
 
-<Typography>
+<Typography fullHeight={false}>
     <data.content/>
 </Typography>
 <div class="space-y-16 border-t border-muted">
