@@ -14,6 +14,7 @@ import {
     ScrollText,
     LifeBuoy,
     BookOpen,
+    Presentation
 } from "lucide-svelte";
 import type {Icon} from "lucide-svelte";
 import type {Component, ComponentType} from "svelte";
@@ -174,6 +175,13 @@ export const mainNavigation: navigationItem[] = [
                 icon: HeartHandshake,
                 description: t.code_of_conduct_description,
                 href: '/code-of-conduct',
+            },
+            {
+                id: 'program_guidelines',
+                label: t.program_guidelines,
+                icon: Presentation,
+                description: t.program_guidelines_description,
+                href: '/program-guidelines',
             },
             {
                 id: 'self_image',
