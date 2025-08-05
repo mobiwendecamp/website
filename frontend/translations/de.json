@@ -17,7 +17,6 @@
     "food_and_drinks": "Essen und Trinken",
     "food_and_drinks_description": "Alle Infos zu Essen auf dem Camp",
     "accessibility": "Zug\u00e4nglichkeit und Barrieren",
-    "demo": "Laufdemo",
     "accessibility_description": "Alle Infos zu Barrierefreiheit",
     "site_plan": "Lageplan",
     "participate": "Mitmachen",
@@ -87,5 +86,6 @@
     "more_about_donations": "Erfahre hier mehr \u00fcber Spenden",
     "learn_more": "Mehr erfahren",
     "onboarding": "Onboarding",
-    "next_onboarding": "Am 18.08.25 ist das n\u00e4chste Onboarding. Komm vorbei!"
+    "next_onboarding": "Am 18.08.25 ist das n\u00e4chste Onboarding. Komm vorbei!",
+    "demo": "Demo"
 }

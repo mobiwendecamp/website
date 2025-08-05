@@ -28,8 +28,8 @@
                 {#if item.children && item.children.length >= 1 }
                     <Collapsible.Root class="text-muted-foreground" open={defaultOpen}>
                         <div class="flex items-center justify-between ">
-                            <a onclick={(event)=>scrollToHeader(event, item.id)} href="#{item.id}"
-                               class="hover:text-foreground hover:translate-x-1 transition-all">
+                            <a onclick={(event)=>scrollToHeader(event, item.id)}
+                               class="hover:text-foreground hover:translate-x-1 transition-all cursor-pointer">
                                 <h4 class="font-semibold">{item.text}</h4>
                             </a>
                             <Collapsible.Trigger
@@ -49,9 +49,9 @@
                         <Collapsible.Content class="space-y-2 pl-4 py-2 text-muted-foreground">
                             {#each item.children as child}
                                 <div>
-                                    <a onclick={(event)=>scrollToHeader(event, item.id)}
-                                       class="block w-full hover:text-foreground hover:translate-x-1 transition-all"
-                                       href="#{child.id}">
+                                    <a onclick={(event)=>scrollToHeader(event, child.id)}
+                                       class="block w-full hover:text-foreground hover:translate-x-1 transition-all cursor-pointer"
+                                      >
                                         {child.text}
                                     </a>
                                 </div>
@@ -59,8 +59,8 @@
                         </Collapsible.Content>
                     </Collapsible.Root>
                 {:else }
-                    <a onclick={(event)=>scrollToHeader(event, item.id)} href="#{item.id}"
-                       class="block hover:text-foreground hover:translate-x-1 transition-all">
+                    <a onclick={(event)=>scrollToHeader(event, item.id)}
+                       class="block hover:text-foreground hover:translate-x-1 transition-all cursor-pointer">
                         <h4 class="font-semibold">{item.text}</h4>
                     </a>
                 {/if}
