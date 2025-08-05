@@ -35,14 +35,14 @@
     "music": "Music",
     "program_music_headline": "Bands and artists on site",
     "program_music_description": "We are pleased to be able to offer a diverse range of bands and artists at our camp. All different genres get their money's worth here.",
+    "program_guidelines": "Program Guidelines",
+    "program_guidelines_description": "Important information for speakers and curating groups.",
     "awareness": "Awareness",
     "awareness_description": "We want to be a 'safeR' space. Here you can find out what that is and how.",
     "code_of_conduct": "Code of Conduct",
     "code_of_conduct_description": "How do we want to live together?",
     "self_image": "Self-image",
     "self_image_description": "Everything about our views and how we see ourselves",
-    "program_guidelines": "Program Guidelines",
-    "program_guidelines_description": "Important information for speakers and curating groups.",
     "donations": "Donations",
     "news": "News",
     "news_description": "The latest news",
@@ -86,5 +86,5 @@
     "more_about_donations": "Learn more about Donations",
     "learn_more": "Learn More",
     "onboarding": "Onboarding",
-    "next_onboarding": "Next Onboarding on the 13.05.25 . Join us!"
+    "next_onboarding": "Next Onboarding on the 18.08.25 . Join us!"
 }

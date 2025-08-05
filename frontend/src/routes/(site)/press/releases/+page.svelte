@@ -11,10 +11,6 @@
     const year2021 = $derived(data.releases.filter((release)=> release.date.getFullYear() === 2021));
 </script>
 
-<Typography>
-    <data.content/>
-</Typography>
-
 {#snippet releaseRow(release)}
     <article class="flex max-w-xl flex-col items-start justify-between">
 

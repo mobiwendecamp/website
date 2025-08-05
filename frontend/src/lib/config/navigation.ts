@@ -145,6 +145,11 @@ export const pressNavigation: navigationItem = {
 export const mainNavigation: navigationItem[] = [
     campNavigation,
     {
+        id: 'demo',
+        label: t.demo,
+        href: '/demo',
+    },
+    {
         id: 'program',
         label: t.program,
         href: '/program',
