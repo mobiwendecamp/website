@@ -61,7 +61,7 @@
         <div class="hidden lg:flex lg:gap-x-12">
             {#each mainNavigation as item}
                 {#if !item?.children}
-                    <a href={item.href} class="text-base/6 font-semibold text-foreground uppercase">{item.label()}</a>
+                    <a href={item.href} target={item.target !== undefined ? item.target: '_self'} class="text-base/6 font-semibold text-foreground uppercase">{item.label()}</a>
                 {:else}
                     <Popover.Root>
                         <Popover.Trigger

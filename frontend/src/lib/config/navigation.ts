@@ -37,6 +37,7 @@ export interface navigationItem {
     icon?: Component | ComponentType<Icon>;
     image?: string
     href: string
+    target?: string
     children?: navigationItemChild[]
     footer?: navigationItemChild[]
 }
@@ -152,7 +153,8 @@ export const mainNavigation: navigationItem[] = [
     {
         id: 'program',
         label: t.program,
-        href: '/program',
+        target: '_blank',
+        href: 'https://programm.mobiwende.camp/mobility-transformation-camp-2025/schedule',
     },
     {
         id: 'news',
