@@ -3,84 +3,81 @@
     import * as Carousel from "$lib/components/ui/carousel";
     import {Hammer, Handshake} from "lucide-svelte";
     import * as t from '$lib/paraglide/messages.js';
-    import guest_1 from '$content/assets/images/guests/guest_1.jpg?enhanced&blur=30';
-    import guest_2 from '$content/assets/images/guests/guest_2.jpg?enhanced&blur=30';
-    import guest_3 from '$content/assets/images/guests/guest_3.jpg?enhanced&blur=30';
-    import guest_4 from '$content/assets/images/guests/guest_4.jpg?enhanced&blur=30';
-    import guest_5 from '$content/assets/images/guests/guest_5.jpg?enhanced&blur=30';
-    import guest_6 from '$content/assets/images/guests/guest_6.jpg?enhanced&blur=30';
-    import guest_7 from '$content/assets/images/guests/guest_7.jpg?enhanced&blur=30';
 
-    import act_1 from '$content/assets/images/acts/act_1.jpg?enhanced&blur=50&quality=20';
-    import act_2 from '$content/assets/images/acts/act_2.jpg?enhanced&blur=50&quality=20';
-    import act_3 from '$content/assets/images/acts/act_3.jpg?enhanced&blur=70&quality=20';
-    import act_4 from '$content/assets/images/acts/act_4.jpg?enhanced&blur=30&quality=20';
-    import act_5 from '$content/assets/images/acts/act_5.jpg?enhanced&blur=70&quality=20';
-    import act_6 from '$content/assets/images/acts/act_6.jpg?enhanced&blur=50&quality=20';
+    import guest_1 from '$lib/assets/images/program/Katja_Diehl.jpg?enhanced';
+    import guest_2 from '$lib/assets/images/program/lisa_poettinger.jpg?enhanced';
+    import guest_3 from '$lib/assets/images/program/joshi.png?enhanced';
+    import guest_4 from '$lib/assets/images/program/miltiadis.jpeg?enhanced';
+    import guest_5 from '$lib/assets/images/program/Ute.jpg?enhanced';
+    import guest_6 from '$lib/assets/images/program/samuel.jpg?enhanced';
+    import guest_7 from '$lib/assets/images/tire.png?enhanced';
+    import bike from '$lib/assets/images/bike.png?enhanced';
+    import circus from '$lib/assets/images/circus.png?enhanced';
+
+    import act_1 from '$lib/assets/images/program/hase.jpeg?enhanced';
+    import act_2 from '$lib/assets/images/program/rosa_rost.jpg?enhanced';
+    import act_3 from '$lib/assets/images/program/ploerre.jpg?enhanced';
+    import act_4 from '$lib/assets/images/program/gush.jpeg?enhanced';
+    import act_5 from '$lib/assets/images/program/odessa.png?enhanced';
+
 
     let guests = [
+            {
+                'name': 'Katja Diehl',
+                'img': guest_1
+            },
+            {
+                'name': 'Lisa Poettinger',
+                'img': guest_2
+            },
+            {
+                'name': 'Joschi Wolf',
+                'img': guest_3
+            },
+            {
+                'name': 'Miltiadis Oulios',
+                'img': guest_4
+            },
+            {
+                'name': 'Ute Vollmann',
+                'img': guest_5
+            },
+            {
+                'name': 'Samuel Bosch',
+                'img': guest_6
+            },
         {
-            'name': 'Noch Geheim',
-            'role': 'Autor*in',
-            'img': guest_1
-        },
-        {
-            'name': 'Nicht angekündigt',
-            'role': 'Comedian',
-            'img': guest_2
-        },
-        {
-            'name': 'Na neugierig',
-            'role': 'Moderator*in',
-            'img': guest_3
-        },
-        {
-            'name': 'Nicht entbluren :O',
-            'role': 'Podcaster*in',
-            'img': guest_4
-        },
-        {
-            'name': 'Du kennst die Devtools',
-            'role': 'Wissenschaftler*in',
-            'img': guest_5
-        },
-        {
-            'name': 'Musst trotzdem',
-            'role': 'Musiker*in',
-            'img': guest_6
-        },
-        {
-            'name': 'Warten',
-            'role': 'Activist*in',
-            'img': guest_7
-        },
-    ];
+            'name': 'Und viele mehr...',
+            img: guest_7
+        }
+        ]
+
     let acts = [
         {
-            'genre': 'Rap',
+            'name': 'Hase',
+            'genre': 'Hardcore Punk',
             'img': act_1
         },
         {
-            'genre': 'Rock',
+            'name': 'ROSA ROST',
+            'genre': 'Gazepunk',
             'img': act_2
         },
         {
-            'genre': 'Electro',
+            'name': 'Plörre',
+            'genre': 'Alternative Punk',
             'img': act_3
         },
         {
-            'genre': 'Pop',
+            'name': 'GUSH',
+            'genre': 'Zwiebelpunk',
             'img': act_4
         },
         {
-            'genre': 'Punk',
+            'name': 'odessa x faye2002',
+            'genre': 'Breaks, Ambient, Hardcore',
             'img': act_5
         },
-        {
-            'genre': 'Metal',
-            'img': act_6
-        },
-
     ];
 </script>
 
@@ -115,10 +112,33 @@
                                 <Carousel.Item
                                         class="basis-1/2 lg:basis-1/3 max-w-xs max-h-full bg-muted p-4 rounded-2xl">
 
-                                    <enhanced:img class="mx-auto rounded-full aspect-square object-cover"
-                                                  src={guest.img} alt={guest.name}/>
-                                    <h3 class="mt-6 lg:text-base/7 font-semibold tracking-tight line-clamp-2 text-sm/7 blur-sm">{guest.name}</h3>
-                                    <p class="lg:text-sm/6 text-xs/6 text-muted-foreground0 break-words">{guest.role}</p>
+
+                                    {#if (guest.img)}
+
+                                        <enhanced:img class="mx-auto rounded-full aspect-square object-cover"
+                                                      src={guest.img}
+                                                      alt={guest.name}/>
+                                    {:else}
+                                        <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 100 100">
+                                            <g>
+                                                <path
+                                                        id="body"
+                                                        d="m 2,98 h 96 0 c 0,0 6,-65 -48,-52 c 0,0 -54,-10 -48,52"
+                                                        style="fill:none;stroke:#7e05a6;stroke-width:1.6;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:2.1, 2.1;stroke-dashoffset:0;stroke-opacity:0.87"/>
+                                                <ellipse
+                                                        ry="27"
+                                                        rx="27"
+                                                        cy="28"
+                                                        cx="50"
+                                                        id="heady"
+                                                        style="fill:none;stroke:#7e05a6;stroke-width:1.3;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6.5, 8;stroke-dashoffset:4;stroke-opacity:0.87"/>
+                                            </g>
+                                        </svg>
+
+                                    {/if}
+                                    <h3 class="mt-6 lg:text-base/7 font-semibold tracking-tight line-clamp-2 text-sm/7">{guest.name}</h3>
                                 </Carousel.Item>
                             {/each}
                         </Carousel.Content>
@@ -130,10 +150,13 @@
                     </div>
                 </div>
             </div>
-            <div class="flex p-px lg:col-span-2 w-full ring-1  bg-card rounded-lg ring-muted-foreground/15 max-lg:rounded-t-[2rem] lg:rounded-tr-[2rem]">
+            <div class="group flex p-px lg:col-span-2 w-full ring-1  bg-card rounded-lg ring-muted-foreground/15 max-lg:rounded-t-[2rem] lg:rounded-tr-[2rem]">
                 <div class="overflow-hidden">
-                    <div class="h-80 w-full flex items-center p-10 ">
-                        <Hammer strokeWidth="1" class="w-full h-full"></Hammer>
+                    <div class="h-80 w-full flex items-center p-10 group-hover:scale-105 transition ">
+
+                        <enhanced:img class="mx-auto rounded-full aspect-square object-cover"
+                                      src={bike}
+                                      alt="Ein Fahrrad"/>
                     </div>
                     <div class="p-10">
                         <h3 class="text-sm/4 font-semibold text-muted-foreground">{t.workshops()}</h3>
@@ -142,10 +165,12 @@
                     </div>
                 </div>
             </div>
-            <div class="flex p-px lg:col-span-2 w-full ring-1  bg-card rounded-lg ring-muted-foreground/15 lg:rounded-bl-[2rem]">
+            <div class=" group flex p-px lg:col-span-2 w-full ring-1  bg-card rounded-lg ring-muted-foreground/15 lg:rounded-bl-[2rem]">
                 <div class="overflow-hidden">
-                    <div class="h-80 w-full flex items-center p-10 ">
-                        <Handshake strokeWidth="1" class="w-full h-full"></Handshake>
+                    <div class="h-80 w-full flex items-center p-10 group-hover:scale-105 transition ">
+                        <enhanced:img class="mx-auto rounded-full aspect-square object-cover"
+                                      src={circus}
+                                      alt="Ein Zirkuszelt"/>
                     </div>
                     <div class="p-10">
                         <h3 class="text-sm/4 font-semibold text-muted-foreground">{t.participate()}</h3>
@@ -182,8 +207,9 @@
                                 <Carousel.Item
                                         class="bg-muted basis-1/2 lg:basis-1/3  p-4 rounded-2xl">
                                     <enhanced:img class="mx-auto rounded-lg aspect-square object-cover"
-                                         src={act.img} alt={act.genre} />
-                                    <h3 class="mt-2 lg:text-base/7 font-semibold tracking-tight line-clamp-2 text-sm/7">{act.genre}</h3>
+                                                  src={act.img} alt={act.genre}/>
+                                    <h3 class="mt-2 lg:text-base/7 font-semibold tracking-tight line-clamp-2 text-sm/7">{act.name}</h3>
+                                    <p class="lg:text-sm/6 text-xs/6 text-muted-foreground0 break-words">{act.genre}</p>
                                 </Carousel.Item>
                             {/each}
                         </Carousel.Content>

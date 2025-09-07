@@ -14,6 +14,8 @@
     import CallToActionSection from "$lib/components/Blocks/CallToActionSection.svelte";
     import type {PageData} from './$types';
     import BikeAnimation from "$lib/components/Blocks/BikeAnimation.svelte";
+    import oeffis from '$lib/assets/images/oeffis.png?enhanced';
+
 
     const {data}: { data: PageData } = $props();
 </script>
@@ -71,6 +73,8 @@
         </div>
 
     </div>
+    <enhanced:img width="150px" id="sighn" class="bottom-0 -ml-1 absolute object-cover "
+                  src={oeffis} alt="ÖFFIS für alle"/>
 </section>
 
 
@@ -86,12 +90,30 @@
     </p>
 </section>
 
+
 <BikeAnimation></BikeAnimation>
+
 
 <NewsSection items={data.news}></NewsSection>
 <ProgramSection></ProgramSection>
 <CallToActionSection></CallToActionSection>
 <style>
+    #sighn {
+        animation: sighn 2s ease-in-out infinite alternate;
+        transform-origin: bottom left;
+    }
+
+
+
+    @keyframes sighn {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(5deg) skewx(2deg);
+        }
+    }
+
 
     #socials {
         animation: entry-zoom 1s ease forwards;
