@@ -22,10 +22,10 @@
 
 
     let guests = [
-            {
+    /*        {
                 'name': 'Katja Diehl',
                 'img': guest_1
-            },
+            },*/
             {
                 'name': 'Lisa Poettinger',
                 'img': guest_2
