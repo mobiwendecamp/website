@@ -38,14 +38,6 @@
                         <div>{t.donation_widget_purpose()}</div>
                     </div>
                 </div>
-
-                <div class="py-4 space-y-2">
-                    <h4 class="font-semibold">{t.donation_via_betterplace()}:</h4>
-
-                    <a class="font-semibold hover:underline flex items-center" target="_blank" href={t.donation_via_betterplace_href()}>
-                        <BetterplaceLogo class="h-8 text-foreground"/>
-                    </a>
-                </div>
             </div>
 
         </div>

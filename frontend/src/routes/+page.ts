@@ -22,7 +22,6 @@ function getNews(language: typeof availableLanguageTags[number], filter: Record<
     );
 
     let items: Record<string, Record<string, unknown>> =  fetchPages(rawItems, language);
-
     return getDynamicPages(items, {
         ...filter,
     });

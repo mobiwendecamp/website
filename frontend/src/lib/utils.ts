@@ -227,9 +227,7 @@ export function getDynamicPages<T>(items: Record<string, Record<string, unknown>
     }
 
     take = take ?? Object.keys(items).length;
-
     return Object.entries(items)
-        .slice(offset, offset + take)
         .map(
             ([path, file]) =>
                 ({
@@ -240,7 +238,8 @@ export function getDynamicPages<T>(items: Record<string, Record<string, unknown>
         )
         .filter((post) => post.published)
         .filter(filter)
-        .sort((a, b) => b.date.valueOf() - a.date.valueOf());
+        .sort((a, b) => b.date.valueOf() - a.date.valueOf())
+        .slice(offset, offset + take);
 }
 
 export function fetchPages(rawItems: Record<string, Record<string, unknown>>, language: typeof availableLanguageTags[number]) {

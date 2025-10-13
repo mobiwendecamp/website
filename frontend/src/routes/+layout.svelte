@@ -36,6 +36,7 @@
 </svelte:head>
 <ParaglideJS {i18n}>
     <ModeWatcher/>
+    <Banner></Banner>
     <MainNavigation></MainNavigation>
     <main class="text-foreground">
         {@render children?.()}
