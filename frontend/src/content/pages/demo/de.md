@@ -46,15 +46,6 @@ Lasst uns am 13.09. am Karolinenplatz zeigen: Wir wollen nicht länger zurückst
 
 Diskriminierende und menschenverachtende Äußerungen, Symbole und Verhaltensweisen sind auf der Demo nicht erwünscht. Wir behalten es uns vor, Leute, die derartige Einstellungen zeigen, von der Versammlung auszuschließen.
 
-### Unterstützung und Spenden
-
-Wir brauchen noch dringend Ordner:innen – meldet euch dazu einfach unter [iaa-demo@riseup.net](mailto:iaa-demo@riseup.net) .
-
-Bisher haben wir noch nicht alle Kosten decken können, wir freuen uns über steuerlich absetzbare Spenden an:  
-Saubere Energie München e.V.  
-IBAN: DE07 4306 0967 1287 3618 00  
-Verwendungszweck: BNE Aktionen *(bitte unbedingt angeben)*
-
 ### Infos zu Barrieren
 
 - Reden werden in Gebärdensprache gedolmetscht. 

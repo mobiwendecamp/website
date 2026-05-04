@@ -1,7 +1,6 @@
 <script lang="ts">
     import type {Snippet} from "svelte";
     import {page} from '$app/stores';
-    import DonationCTA from "$lib/components/Blocks/DonationCTA.svelte";
     import NewsletterCTA from "$lib/components/Blocks/NewsletterCTA.svelte";
     import SocialMediaCTA from "$lib/components/Blocks/SocialMediaCTA.svelte";
     import {fade,} from 'svelte/transition'
@@ -100,8 +99,6 @@
             {/if}
 
             <div class="space-y-6">
-                <DonationCTA></DonationCTA>
-                <NewsletterCTA></NewsletterCTA>
                 <SocialMediaCTA></SocialMediaCTA>
             </div>
 

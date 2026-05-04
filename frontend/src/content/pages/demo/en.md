@@ -48,15 +48,6 @@ Let's show on September 13 at Karolinenplatz: We no longer want to take a back s
 
 Discriminatory and inhumane statements, symbols, and behavior are not welcome at the demonstration. We reserve the right to exclude people who display such attitudes from the gathering.
 
-### Support and Donations
-
-We still urgently need stewards – simply register at [iaa-demo@riseup.net](mailto:iaa-demo@riseup.net) .
-
-We have not yet been able to cover all costs, so we welcome tax-deductible donations to:  
-Saubere Energie München e.V.  
-IBAN: DE07 4306 0967 1287 3618 00  
-Reference: BNE Aktionen *(please make sure to specify)*
-
 ### Information on Barriers
 
 - Speeches will be interpreted in sign language.

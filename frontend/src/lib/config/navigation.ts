@@ -220,11 +220,6 @@ export const footerNavigation: navigationItem[] = [
         label: t.data_privacy,
         href: '/privacy',
     },
-    {
-        id: 'donate',
-        label: t.donations,
-        href: '/donate',
-    },
 ]
 
 
