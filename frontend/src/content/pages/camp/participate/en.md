@@ -15,4 +15,4 @@ There's a whole array of tasks that we need to schedule before the camp: tech ma
 
 ## Become a part of the camp
 
-It's never too late to join our little group of organizers. If you want to join help and support, write to us at [mitmachen@mobiwende.camp](mailto:mitmachen@mobiwende.camp) or just go to the info tent at the camp itself. See you!
+It's never too late to join our little group of organizers. If you want to join help and support, just go to the info tent at the camp itself. See you!

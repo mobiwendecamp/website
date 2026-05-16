@@ -19,8 +19,6 @@ Und: Der Widerstand gegen die IAA ist weiterhin groß. Für Samstag, den 13. Sep
 
 *Wir laden Sie herzlich ein zur Pressekonferenz zu den Protesten und Gegenveranstaltung zur IAA am Montag, den 08.09.2025, um 11:00 Uhr im Luitpoldpark.*
 
-Mail: [presse@mobiwende.camp](mailto:presse@mobiwende.camp)
-
 Programübersicht: <https://programm.mobiwende.camp/mobility-transformation-camp-2025/schedule/>
 
 Fotos von 2023:  <https://www.swisstransfer.com/d/5a402514-d9a4-4aa8-9e6a-bb957b87aab5>

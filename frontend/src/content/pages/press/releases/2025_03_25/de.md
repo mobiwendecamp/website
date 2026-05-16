@@ -39,7 +39,7 @@ Auch die niedrige Flächengebühr für die IAA steht in der Kritik: Der Verband 
 
 ## Ansprechperson:
 
-Kim Probst - Mobilitätswende-Camp - presse@mobiwende.camp
+Kim Probst - Mobilitätswende-Camp
 
 ## Folgende Bilder können verwendet werden:
 

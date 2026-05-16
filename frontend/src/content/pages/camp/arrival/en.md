@@ -22,15 +22,11 @@ We want to enable everyone to arrive and depart as safely as possible.
 
 If you feel unsafe on the way to the camp, please contact us to request an accompanying person to pick you up at a location of your choice and accompany you to the camp.
 
-Please contact us in advance at [kontakt@mobiwende.camp](mailto:kontakt@mobiwende.camp) if you need help.
-
 ## Arrival by car
 
 We hope that you do not arrive by car or camper van, as there will be no parking on site, except for caravans for disabled persons (please notify us if you plan to use one).
 
 An inclusion taxi for the seated transport of people in wheelchairs can be ordered, for example, from the Munich wheelchair taxi ([+49 89 84938828](tel:+498984938828)), from Isarfunk ([+49 89 450 540](tel:+4989450540)) or from Taxi Munich ([+49 89 21610](tel:+498921610)).
-
-If you have any further questions about barrier-free travel, please contact us at [kontakt@mobiwende.camp](mailto:kontakt@mobiwende.camp) .
 
 ## Arrival by public transport
 

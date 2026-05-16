@@ -25,6 +25,4 @@ We kindly ask you to submit your program proposals by mid-July (July 13) so that
 
 Are you an association/organization/group with so many ideas that you can even fill a program tent during the entire camp? Perfect, there are 4 tents available. You can submit proposals for program tents at https://programm.mobiwende.camp/zelte/cfp.
 
-If you have any questions that do not fit into the format of the form above, you can also write to us at programm@mobiwende.camp.
-
 [Program guidelines](https://www.mobiwende.camp/program-guidelines) apply to events at the camp.

@@ -6,7 +6,4 @@ hero_image: 'press.jpg'
 
 ## Kontakte
 
-Dies sind unsere Pressekontakte für Presseanfragen.
-
-Pressekontakt:  
-E-Mail: [presse@mobiwende.camp](mailto:presse@mobiwende.camp).  
+Die Pressekontakte sind aktuuell nicht aktiv.

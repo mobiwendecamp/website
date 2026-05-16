@@ -25,6 +25,4 @@ Wir bitten euch, eure Programmvorschläge bis Mitte Juli (13. Juli) einzureichen
 
 Ihr seid ein Verein/Initiative/Gruppe mit so vielen Ideen, dass ihr sogar ein Programmzelt während des gesamten Camps bespielen könnt? Perfekt, zu vergeben sind 4 Zelte. Unter https://programm.mobiwende.camp/zelte/cfp könnt ihr Vorschläge für selbstverwaltete Programmzelte einreichen.
 
-Falls ihr Fragen habt, die nicht in das Format des genannten Formulars passen, könnt ihr uns auch unter programm@mobiwende.camp anschreiben.
-
 Für Veranstaltungen auf dem Camp gelten [Programmrichtlinien](https://www.mobiwende.camp/program-guidelines).

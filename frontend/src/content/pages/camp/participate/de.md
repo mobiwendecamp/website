@@ -16,4 +16,4 @@ Es gibt eine ganze Reihe von Aufgaben, für die zeitweise Personen die Verantwor
 
 ## Mach mit beim Camp
 
-Wir freuen uns über deine Unterstützung - auch kurzfristig! Schreib uns per Mail an [mitmachen@mobiwende.camp](mailto:mitmachen@mobiwende.camp)  oder komm einfach beim Camp zum Infozelt um mitzumachen.
+Wir freuen uns über deine Unterstützung - auch kurzfristig! Komm einfach beim Camp zum Infozelt um mitzumachen.

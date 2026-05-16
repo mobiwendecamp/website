@@ -11,7 +11,7 @@ Das Camp wird von einer Reihe aus Freiwilligen organisiert, geplant und aufgebau
 
 ## Planen, Organisieren und neue Leute kennen lernen
 
-Du möchtest voll in die Orga Arbeit einsteigen, das Camp mit konzipieren, planen und unterstützen? Dann komm in unsere Orga. Wie bieten in regelmäßigen Abständen Onboardings an, in denen du erfährst  wie du helfen kannst und auch Fragen stellen kannst, die vielleicht noch offen sind. Das nächste Onboarding ist am **11.03.25 18:00.** Schreib uns einfach eine Mail an **mitmachen@mobiwende.camp**.
+Du möchtest voll in die Orga Arbeit einsteigen, das Camp mit konzipieren, planen und unterstützen? Dann komm in unsere Orga. Wie bieten in regelmäßigen Abständen Onboardings an, in denen du erfährst  wie du helfen kannst und auch Fragen stellen kannst, die vielleicht noch offen sind.
 
 ## Vor Ort helfen
 

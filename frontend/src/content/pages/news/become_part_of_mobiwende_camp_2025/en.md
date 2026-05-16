@@ -9,7 +9,7 @@ The camp is organized, planned and set up by a number of volunteers. Do you want
 
 ## Plan, organize and meet new people
 
-Would you like to get fully involved in the organization work, help design, plan and support the camp? Then come to our organization. We offer onboardings at regular intervals, where you can find out how you can help and also ask questions that may still be unanswered. The next onboarding is on **11.03.25 18:00.** Just write us an email at **mitmachen@mobiwende.camp**.
+Would you like to get fully involved in the organization work, help design, plan and support the camp? Then come to our organization. We offer onboardings at regular intervals, where you can find out how you can help and also ask questions that may still be unanswered.
 
 ## Help on site
 

@@ -259,7 +259,7 @@ Alle Münchner Krankenhäuser mit Gynäkologie bieten in der Notaufnahme die ano
 
 ### Barrierearmut
 
-Informationen zur Barrierearmut findest du hier <https://www.mobiwende.camp/camp/accessibility>. Falls du Fragen und Anregungen dazu hast melde dich gerne hier [awareness@mobiwende.camp](mailto:awareness@mobiwende.camp).
+Informationen zur Barrierearmut findest du hier <https://www.mobiwende.camp/camp/accessibility>.
 
 ### Laufender Feedback Prozess
 

@@ -34,7 +34,3 @@ Bezüglich Diskriminierung, was auch eine Form der Barriere darstellt, möchten 
 ## Was wir Dir nicht bieten können
 
 Leider sind unsere Kapazitäten und finanziellen Mittel begrenzt, deshalb können wir einige Maßnahmen, die wir für den Barriereabbau gerne getroffen hätten, nicht umsetzen. Wir können leider keine vollumfängliche Gehörlosen-Dolmetschung, Transkription und Simulatanübersetzung anbieten. Wir haben leider kein Leitsystem im Camp und keine Braille-Schrift auf Schildern und Aushängen.
-
-## Sag uns deine Meinung
-
-Um uns stetig zu verbessern, sind wir dankbar über Rückmeldungen zu Bedürfnissen aus Betroffenen-Perspektive! Deine Rückmeldungen können helfen die nächsten Camps noch besser zu machen. Melde dich bei uns auf dem Camp im Info-Zelt, oder hinterlasse uns [kontakt@mobiwende.camp](mailto:kontakt@mobiwende.camp) Feedback.

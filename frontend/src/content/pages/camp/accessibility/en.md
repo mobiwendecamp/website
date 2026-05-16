@@ -34,7 +34,3 @@ Regarding discrimination, which we consider a form of barrier as well, we refer 
 ## What We Cannot Offer
 
 Unfortunately, our capacities and financial resources are limited, which means we are unable to implement some of the accessibility measures we would have liked to. We cannot offer full sign language interpretation, transcription, or simultaneous translation. We also do not have a guidance system in place at the camp, and signs and postings do not include Braille.
-
-## Tell Us What You Think
-
-To continuously improve, we are grateful for feedback from the perspective of those affected! Your input can help make future camps even better. Visit us at the info tent during the camp or leave your feedback [kontakt@mobiwende.camp](mailto:kontakt@mobiwende.camp) .
