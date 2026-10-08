@@ -6,4 +6,4 @@ hero_image: 'press.jpg'
 
 ## Kontakte
 
-Die Pressekontakte sind aktuuell nicht aktiv.
+Die Pressekontakte sind aktuell nicht aktiv.

@@ -150,12 +150,12 @@ export const mainNavigation: navigationItem[] = [
         label: t.demo,
         href: '/demo',
     },
-    {
-        id: 'program',
-        label: t.program,
-        target: '_blank',
-        href: 'https://programm.mobiwende.camp/mobility-transformation-camp-2025/schedule',
-    },
+    // {
+    //     id: 'program',
+    //     label: t.program,
+    //     target: '_blank',
+    //     href: 'https://programm.mobiwende.camp/mobility-transformation-camp-2025/schedule',
+    // },
     {
         id: 'news',
         label: t.news,

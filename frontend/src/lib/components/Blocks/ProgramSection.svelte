@@ -175,7 +175,6 @@
                     <div class="p-10">
                         <h3 class="text-sm/4 font-semibold text-muted-foreground">{t.participate()}</h3>
                         <p class="mt-2 text-lg font-medium tracking-tight">{t.program_participate_headline()}</p>
-                        <p class="mt-2 max-w-lg text-sm/6 text-muted-foreground">{t.program_participate_description()}</p>
                     </div>
                 </div>
             </div>
